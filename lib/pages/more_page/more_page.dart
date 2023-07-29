@@ -14,7 +14,14 @@ class _MorePageState extends State<MorePage> {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(color: Color.fromARGB(255, 215, 220, 231)),
-        child: const Column(children: <Widget>[ProfileBlock(), BTNsBlock()]),
+        child: const Column(
+          children: <Widget>[
+            Spacer(),
+            ProfileBlock(),
+            Spacer(), 
+            BTNsBlock()
+            ]
+        ),
       )
     );
   }

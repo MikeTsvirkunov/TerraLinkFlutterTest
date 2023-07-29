@@ -15,16 +15,31 @@ class _BTNState extends State<BTN> {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-            onPressed: () => {},
-            style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),
-            child: Row(
-              children: [
-                icon,
-                Text(text),
-                const Icon(Icons.navigate_next)
-              ],
+    return Container(
+      margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+      child: TextButton(
+        onPressed: () => {},
+        style: const ButtonStyle(
+          backgroundColor: MaterialStatePropertyAll(Colors.white),
+          shape: MaterialStatePropertyAll(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
             )
-          );
+          ),
+          overlayColor: MaterialStatePropertyAll(Color.fromARGB(255, 170, 0, 24))
+        ),
+        child: SizedBox(
+          height: 50,
+          child: Row(
+            children: [
+              icon,
+              Text(text),
+              const Spacer(),
+              const Icon(Icons.navigate_next)
+            ],
+          )
+        )
+      ),
+    );
   }
 }
