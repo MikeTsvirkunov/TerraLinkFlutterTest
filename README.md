@@ -1,16 +1,12 @@
 # flutter_application_terra_link_test
 
-"A new Flutter project."
+## Demonstration
 
-## Getting Started
+https://github.com/MikeTsvirkunov/TerraLinkFlutterTest/assets/90059317/692dcba7-86bf-4f53-b2f1-dc6d44c22b34
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## File
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+https://disk.yandex.ru/d/pwGsTKl66Z7pjw
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![qr](https://github.com/MikeTsvirkunov/TerraLinkFlutterTest/assets/90059317/1096859e-d0a1-44ec-bc09-61599394e511)
