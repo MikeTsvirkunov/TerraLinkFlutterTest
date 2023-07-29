@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 class TaskContainer extends StatefulWidget {
-  const TaskContainer({super.key});
+  final ScrollController contr;
+  const TaskContainer(this.contr, {super.key});
   @override
-  State<TaskContainer> createState() => _TaskContainerState();
+  State<TaskContainer> createState() => _TaskContainerState(contr);
 }
 
 class _TaskContainerState extends State<TaskContainer> {
+  final ScrollController contr;
+  _TaskContainerState(this.contr);
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: contr,
       child: Container(
         margin: const EdgeInsets.fromLTRB(10, 0, 10, 100),
         decoration: const BoxDecoration(
