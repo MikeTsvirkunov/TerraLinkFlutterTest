@@ -26,9 +26,8 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size(double.maxFinite, 30.0),
-        child: Column(
+      appBar: AppBar(
+        title: Column(
           children: [ 
             AnimatedContainer(
               duration: const Duration(milliseconds: 250),
