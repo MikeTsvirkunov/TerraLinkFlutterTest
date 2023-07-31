@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './horizontal_scroll_bar.dart';
 import 'package:flutter_application_terra_link_test/pages/task_page/task_container.dart';
 
 class ColapseableAppBar extends StatefulWidget {
@@ -26,8 +27,11 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
-        title: Column(
+        title: Container(
+          padding: const EdgeInsets.all(10),
+          child: Column(
           children: [ 
             AnimatedContainer(
               duration: const Duration(milliseconds: 250),
@@ -56,15 +60,19 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
             const SizedBox(
               height: 40,
               child: SearchBar(
-                
                 hintText: 'Search',
               )
-            )
+            ),
           ]
         ),
       ),
-
-      body: TaskContainer(_scrollController)
+      ),
+      body: Container(
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(255, 238, 240, 244),
+        ),
+        child: TaskContainer(_scrollController)
+      )
       // ListView(
         // controller: _scrollController,
         // children: [],

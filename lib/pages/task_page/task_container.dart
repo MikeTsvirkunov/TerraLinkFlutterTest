@@ -15,7 +15,7 @@ class _TaskContainerState extends State<TaskContainer> {
     return SingleChildScrollView(
       controller: contr,
       child: Container(
-        margin: const EdgeInsets.fromLTRB(10, 0, 10, 100),
+        margin: const EdgeInsets.fromLTRB(10, 10, 10, 100),
         decoration: const BoxDecoration(
           color: Color.fromARGB(255, 215, 220, 231),
           borderRadius: BorderRadius.all(Radius.circular(20))
