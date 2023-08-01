@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './horizontal_scroll_bar.dart';
+import 'horizontall_container/horizontal_scroll_bar.dart';
 import 'package:flutter_application_terra_link_test/pages/task_page/task_container.dart';
 
 class ColapseableAppBar extends StatefulWidget {
@@ -29,7 +29,7 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
     return Scaffold(
       
       appBar: AppBar(
-        toolbarHeight: 80,
+        toolbarHeight: 90,
         title: Container(
           padding: const EdgeInsets.all(10),
           child: Column(
@@ -64,13 +64,16 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
               children: [
                 SizedBox(
                   height: 35,
-                  width: 310,
+                  width: 300,
                   child: SearchBar(
                    hintText: 'Search',
                   )
                 ),
                 Spacer(),
-                Icon(Icons.tune, color: Color.fromARGB(255, 210, 35, 60),)
+                // Icon(Icons.tune, color: Color.fromARGB(255, 210, 35, 60),),
+                ImageIcon(AssetImage('assets/images/icons/filter.png'), size: 30, color: Color.fromARGB(255, 210, 35, 60),),
+                Spacer(flex: 2,)
+
               ]
             ),
           ]
@@ -81,9 +84,15 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
         decoration: const BoxDecoration(
           color: Color.fromARGB(255, 238, 240, 244),
         ),
+        
         child: Scaffold(
-          appBar: AppBar(title: const HorizontalScrollBar()), 
-        body: TaskContainer(_scrollController),)
+          appBar: AppBar(
+            title: const HorizontalScrollBar(),
+            toolbarHeight: 80,
+            
+          ), 
+          body: TaskContainer(_scrollController),
+        )
       )
       // ListView(
         // controller: _scrollController,

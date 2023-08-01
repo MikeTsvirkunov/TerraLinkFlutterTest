@@ -28,8 +28,8 @@ var tabsList = <Widget>[
           ),
           child: 
           const Text(
-            'asd',
-            style: TextStyle(fontSize: 10),
+            '+',
+            style: TextStyle(fontSize: 25),
           ),
           )
       // Container(

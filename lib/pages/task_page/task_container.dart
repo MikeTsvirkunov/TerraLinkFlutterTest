@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './horizontal_scroll_bar.dart';
+import 'horizontall_container/horizontal_scroll_bar.dart';
+import './task_block.dart';
 
 class TaskContainer extends StatefulWidget {
   final ScrollController contr;
@@ -21,11 +22,16 @@ class _TaskContainerState extends State<TaskContainer> {
           color: Color.fromARGB(255, 215, 220, 231),
           borderRadius: BorderRadius.all(Radius.circular(20))
         ),
-        child: const Column(children: <Widget>[
-            
-            Text("Task1", textScaler: TextScaler.linear(20),),
-            Text("Task2", ),
-            Text("Task3", )
+        child: Column(
+          
+          children: <Widget>[
+            // Text("Task1", textScaler: TextScaler.linear(20),),
+          TaskBlock(),
+          TaskBlock(),
+          TaskBlock(),
+          TaskBlock(),
+          TaskBlock(),
+          TaskBlock()
           ],
         )
       ),
