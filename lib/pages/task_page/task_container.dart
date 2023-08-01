@@ -1,37 +1,44 @@
 import 'package:flutter/material.dart';
-import 'horizontall_container/horizontal_scroll_bar.dart';
+// import 'horizontall_container/horizontal_scroll_bar.dart';
 import './task_block.dart';
 
 class TaskContainer extends StatefulWidget {
   final ScrollController contr;
   const TaskContainer(this.contr, {super.key});
   @override
-  State<TaskContainer> createState() => _TaskContainerState(contr);
+  State<TaskContainer> createState() => _TaskContainerState();
 }
 
 class _TaskContainerState extends State<TaskContainer> {
-  final ScrollController contr;
-  _TaskContainerState(this.contr);
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      controller: contr,
+      controller: widget.contr,
       child: Container(
         margin: const EdgeInsets.fromLTRB(10, 10, 10, 100),
         decoration: const BoxDecoration(
           color: Color.fromARGB(255, 215, 220, 231),
           borderRadius: BorderRadius.all(Radius.circular(20))
         ),
-        child: Column(
+        child: const Column(
           
           children: <Widget>[
             // Text("Task1", textScaler: TextScaler.linear(20),),
-          TaskBlock(),
-          TaskBlock(),
-          TaskBlock(),
-          TaskBlock(),
-          TaskBlock(),
-          TaskBlock()
+          TaskBlock(
+            'Подписание', 
+            'Служебная записка ПЗ456-890', '23', 
+            'дек', 
+            'Задача — проблемная ситуация с явно заданной целью, которую необходимо достичь; в более узком смысле задачей также называют саму', 255, 0, 0),
+          TaskBlock(
+            'Подписание', 
+            'Служебная записка ПЗ456-890', '23', 
+            'дек', 
+            'Задача — проблемная ситуация с явно заданной целью, которую необходимо достичь; в более узком смысле задачей также называют саму', 0, 0, 0),
+          TaskBlock(
+            'Подписание', 
+            'Служебная записка ПЗ456-890', '23', 
+            'дек', 
+            'Задача — проблемная ситуация с явно заданной целью, которую необходимо достичь; в более узком смысле задачей также называют саму', 0, 0, 0),
           ],
         )
       ),
