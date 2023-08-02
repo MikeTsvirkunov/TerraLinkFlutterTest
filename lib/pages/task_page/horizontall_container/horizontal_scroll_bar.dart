@@ -12,20 +12,25 @@ class _HorizontalScrollBarState extends State<HorizontalScrollBar> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
+      
       child: Container(
-        // height: 300,
-        padding: const EdgeInsets.all(10),
+        width: double.maxFinite,
+        alignment: AlignmentDirectional.center,
+        // height: 100,
+        padding: const EdgeInsets.all(30),
         margin: const EdgeInsets.fromLTRB(10, 10, 10, 100),
         decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 215, 220, 231),
+            color: Color.fromARGB(255, 205, 210, 221),
             borderRadius: BorderRadius.all(Radius.circular(20))),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
               padding: const EdgeInsets.all(10),
               // height: 60,
-              // width: 50,
-              color: Colors.white,
+              width: 100,
+              color: Colors.green,
               child: const Column(
                 children: [
                   Row(
@@ -41,11 +46,11 @@ class _HorizontalScrollBarState extends State<HorizontalScrollBar> {
             ),
             const Text(
               "Task2",
-              textScaler: TextScaler.linear(20),
+              textScaler: TextScaler.linear(10),
             ),
             const Text(
               "Task3",
-                textScaler: TextScaler.linear(20),
+                textScaler: TextScaler.linear(10),
             )
           ],
         )

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'horizontall_container/horizontal_scroll_bar.dart';
 import 'package:flutter_application_terra_link_test/pages/task_page/task_container.dart';
+import './horizontall_container/horizontal_scroll_bar2.dart';
+import './horizontall_container/horizontal_container.dart';
 
 class ColapseableAppBar extends StatefulWidget {
   const ColapseableAppBar({super.key});
@@ -27,74 +29,85 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      appBar: AppBar(
-        toolbarHeight: 90,
-        title: Container(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-          children: [ 
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 250),
-              alignment:  _scrollPosition == 0 ? Alignment.topLeft : Alignment.topCenter,
-              child: Wrap(
-                runAlignment: WrapAlignment.center,
-                // crossAxisAlignment: WrapCrossAlignment.center,
-                children: [
-                  Text(
-                    'Задачи', 
-                    style: TextStyle(
-                      fontSize: _scrollPosition == 0 ? 40 : 22,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold
-                    )
+            appBar: AppBar(
+              toolbarHeight: 90,
+              title: Container(
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      AnimatedContainer(
+                          duration: const Duration(milliseconds: 250),
+                          alignment: _scrollPosition == 0
+                              ? Alignment.topLeft
+                              : Alignment.topCenter,
+                          child: Wrap(
+                            // runAlignment: WrapAlignment.center,
+                            // crossAxisAlignment: WrapCrossAlignment.center,
+                            children: [
+                              Text('Задачи',
+                                  style: TextStyle(
+                                      fontSize: _scrollPosition == 0 ? 40 : 22,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              SizedBox(
+                                  height: 0,
+                                  child: IconButton(
+                                    onPressed: () => {},
+                                    padding: const EdgeInsets.all(5),
+                                    icon: Icon(Icons.autorenew,
+                                        size: _scrollPosition == 0 ? 40 : 22,
+                                        color: const Color.fromARGB(
+                                            255, 210, 35, 60)),
+                                  ))
+                            ],
+                          )),
+                      const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            SizedBox(
+                                height: 35,
+                                width: 300,
+                                child: SearchBar(
+                                  hintText: 'Search',
+                                )),
+                            Spacer(),
+                            // Icon(Icons.tune, color: Color.fromARGB(255, 210, 35, 60),),
+                            ImageIcon(
+                              AssetImage('assets/images/icons/filter.png'),
+                              size: 30,
+                              color: Color.fromARGB(255, 210, 35, 60),
+                            ),
+                            // Spacer(flex: 2,)
+                          ]),
+                    ]),
+              ),
+            ),
+            body: Scaffold(
+              appBar: AppBar(
+                backgroundColor: Color.fromARGB(150, 244, 215, 235),
+                toolbarHeight: 120,
+                title: const SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
+                      TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
+                      TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
+                    ],
                   ),
-                  SizedBox(
-                    height: 0,
-                    child: IconButton(
-                      onPressed: ()=>{},
-                      padding: const EdgeInsets.all(5),
-                      icon: Icon(Icons.autorenew, size: _scrollPosition == 0 ? 40 : 22, color: const Color.fromARGB(255, 210, 35, 60)),
-                    )
-                  )
-                ],
-              )
-            ),
-            const Row(
-              children: [
-                SizedBox(
-                  height: 35,
-                  width: 300,
-                  child: SearchBar(
-                   hintText: 'Search',
-                  )
-                ),
-                Spacer(),
-                // Icon(Icons.tune, color: Color.fromARGB(255, 210, 35, 60),),
-                ImageIcon(AssetImage('assets/images/icons/filter.png'), size: 30, color: Color.fromARGB(255, 210, 35, 60),),
-                Spacer(flex: 2,)
-
-              ]
-            ),
-          ]
-        ),
-      ),
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 238, 240, 244),
-        ),
-        
-        child: Scaffold(
-          appBar: AppBar(
-            title: const HorizontalScrollBar(),
-            toolbarHeight: 80,
+                ) // const HorizontalScrollBar(),
+                // bottom: PreferredSize(preferredSize: Size(double.maxFinite, 100), child: TabBarExample())
+                // toolbarHeight: 300,
+              ),
+              body: TaskContainer(_scrollController),
+            )
             
-          ), 
-          body: TaskContainer(_scrollController),
-        )
-      )
-      // ListView(
+        // ListView(
         // controller: _scrollController,
         // children: [],
         // itemCount: 20,
@@ -103,7 +116,7 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
         //     title: Text('Item: $index'),
         //   );
         // },
-      // ),
+        // ),
     );
   }
 }
