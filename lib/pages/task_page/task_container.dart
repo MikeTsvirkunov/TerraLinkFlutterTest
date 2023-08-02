@@ -17,7 +17,7 @@ class _TaskContainerState extends State<TaskContainer> {
       child: Container(
         margin: const EdgeInsets.fromLTRB(10, 10, 10, 100),
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 215, 220, 231),
+          color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(20))
         ),
         child: const Column(
@@ -28,7 +28,7 @@ class _TaskContainerState extends State<TaskContainer> {
             'Подписание', 
             'Служебная записка ПЗ456-890', '23', 
             'дек', 
-            'Задача — проблемная ситуация с явно заданной целью, которую необходимо достичь; в более узком смысле задачей также называют саму', 255, 0, 0),
+            'Задача — проблемная ситуация с явно заданной целью, которую необходимо достичь; в более узком смысле задачей также называют саму', 243, 0, 52),
           TaskBlock(
             'Подписание', 
             'Служебная записка ПЗ456-890', '23', 

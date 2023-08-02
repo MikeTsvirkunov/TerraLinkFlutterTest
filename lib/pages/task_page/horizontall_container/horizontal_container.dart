@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_terra_link_test/global.dart';
+// import 'package:flutter_application_terra_link_test/global.dart';
 
 class TaskCounterBlock extends StatefulWidget {
   final String name;
@@ -14,6 +14,8 @@ class _TaskCounterBlockState extends State<TaskCounterBlock> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 77,
+      width: 144,
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.all(10),
       decoration: const BoxDecoration(
@@ -25,24 +27,31 @@ class _TaskCounterBlockState extends State<TaskCounterBlock> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: 150,
+            width: 144,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: Color.fromARGB(150, 244, 215, 235),
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    color: Colors.white,
                   ),
-                  padding: const EdgeInsets.all(10),
-                  child: Text(widget.counter),
+                  height: 35,
+                  width: 39,
+                  padding: const EdgeInsets.all(5),
+                  child: Text(
+                    widget.counter,
+                  ),
                 ),
                 // Spacer(),
                 ImageIcon(AssetImage(widget.icon))
               ],
             )
           ),
-          Text(widget.name)
+          Text(
+            widget.name,
+            textScaler: const TextScaler.linear(0.8),
+          )
         ]
       ),
     );

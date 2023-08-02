@@ -19,14 +19,17 @@ class _BlockTaskState extends State<TaskBlock> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(12),
       width: double.maxFinite,
       decoration: const BoxDecoration(
         border: Border(bottom: BorderSide(color: Color.fromARGB(255, 230, 232, 235), width: 2)), 
         color: Colors.white,
       ),
       child: Column(
-        children: [ Row(
-          children: [
+        children: [ 
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
             SizedBox(
               width: 250,
               child: Column(
@@ -50,31 +53,35 @@ class _BlockTaskState extends State<TaskBlock> {
                   ),
                   const Text(
                     'Автор: Панасенков Г.В.',
-                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                   ),
                 ],
               )
             ),
             const Spacer(),
             Container(
-              padding: const EdgeInsets.all(10),
+              height: 58,
+              padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 color: Color.fromARGB(60, widget.red, widget.green, widget.blue)
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(widget.day,
                     style: TextStyle(
                       fontWeight: FontWeight.bold, 
-                      fontSize: 25, 
+                      fontSize: 24, 
+                      height: 0,
                       color: Color.fromARGB(255, widget.red, widget.green, widget.blue))
                   ),
                   Text(
                     widget.month,
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 16,
+                      height: 0,
                       color: Color.fromARGB(255, widget.red, widget.green, widget.blue)
                     ),
                   )
