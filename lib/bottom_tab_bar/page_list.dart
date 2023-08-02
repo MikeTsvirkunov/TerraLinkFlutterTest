@@ -4,7 +4,14 @@ import 'package:flutter_application_terra_link_test/pages/more_page/more_page.da
 
 const pageList = <Widget>[
   TaskPage(),
-  Center(child: Text("Поручения будут."),),
-  Center(child: Text("Документы будут."),),
+  Center(
+    child: Text("Поручения будут."),
+  ),
+  Center(
+    child: Text("Поручения будут."),
+  ),
+  Center(
+    child: Text("Документы будут."),
+  ),
   MorePage(),
 ];

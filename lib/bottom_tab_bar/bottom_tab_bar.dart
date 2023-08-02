@@ -9,13 +9,14 @@ class BottomTabBar extends StatefulWidget {
   State<BottomTabBar> createState() => _BottomTabBarState();
 }
 
-class _BottomTabBarState extends State<BottomTabBar> with TickerProviderStateMixin {
+class _BottomTabBarState extends State<BottomTabBar>
+    with TickerProviderStateMixin {
   late final TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -32,9 +33,16 @@ class _BottomTabBarState extends State<BottomTabBar> with TickerProviderStateMix
         children: pageList,
       ),
       bottomNavigationBar: TabBar(
+          indicator: ShapeDecoration(
+              color: Colors.white,
+              shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              )),
+          labelStyle: const TextStyle(color: Colors.black),
+          unselectedLabelColor: const Color.fromARGB(255, 151, 162, 187),
+          labelColor: Colors.black, //For Selected tab
           controller: _tabController,
-          tabs: tabsList
-        ),
+          tabs: tabsList),
     );
   }
 }
