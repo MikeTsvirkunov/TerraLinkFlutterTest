@@ -21,7 +21,7 @@ class _TaskPageHeaderState extends State<TaskPageHeader> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
             color: Colors.white,
             width: double.maxFinite,
             height: 40,

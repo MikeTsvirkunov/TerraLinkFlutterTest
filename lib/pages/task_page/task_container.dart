@@ -20,22 +20,26 @@ class _TaskContainerState extends State<TaskContainer> {
           decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(20))),
-          child: const Column(
+          child: Column(
             children: <Widget>[
-              // SingleChildScrollView(
-          //   scrollDirection: Axis.horizontal,
-          //   child: Row(
-          //     crossAxisAlignment: CrossAxisAlignment.center,
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
-          //       TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
-          //       TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
-          //     ],
-          //   ),
-          // ),
-              // Text("Task1", textScaler: TextScaler.linear(20),),
-              TaskBlock(
+              Container(
+                color: const Color.fromARGB(255, 240, 242, 245),
+                width: double.maxFinite,
+                height: 120,
+                child: const SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
+                      TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
+                      TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
+                    ],
+                  ),
+                ),
+              ),
+              const TaskBlock(
                   'Подписание',
                   'Служебная записка ПЗ456-890',
                   '23',
@@ -44,7 +48,7 @@ class _TaskContainerState extends State<TaskContainer> {
                   243,
                   0,
                   52),
-              TaskBlock(
+              const TaskBlock(
                   'Подписание',
                   'Служебная записка ПЗ456-890',
                   '23',
@@ -53,7 +57,7 @@ class _TaskContainerState extends State<TaskContainer> {
                   0,
                   0,
                   0),
-              TaskBlock(
+              const TaskBlock(
                   'Подписание',
                   'Служебная записка ПЗ456-890',
                   '23',
