@@ -33,16 +33,20 @@ class _BottomTabBarState extends State<BottomTabBar>
         children: pageList,
       ),
       bottomNavigationBar: TabBar(
-          indicator: ShapeDecoration(
-              color: Colors.white,
-              shape: BeveledRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              )),
-          labelStyle: const TextStyle(color: Colors.black),
-          unselectedLabelColor: const Color.fromARGB(255, 151, 162, 187),
-          labelColor: Colors.black, //For Selected tab
-          controller: _tabController,
-          tabs: tabsList),
+        tabAlignment: TabAlignment.center,
+        // isScrollable: true,
+        indicator: ShapeDecoration(
+            // color: Colors.white,
+          shape: BeveledRectangleBorder(
+            borderRadius: BorderRadius.circular(0),
+          )
+        ),
+        labelStyle: const TextStyle(color: Colors.black),
+        unselectedLabelColor: const Color.fromARGB(255, 151, 162, 187),
+        labelColor: Colors.black, //For Selected tab
+        controller: _tabController,
+        tabs: tabsList
+      ),
     );
   }
 }

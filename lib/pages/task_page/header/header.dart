@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './search_bar.dart';
 
 class TaskPageHeader extends StatefulWidget {
   final double _scrollPosition;
@@ -74,24 +75,8 @@ class _TaskPageHeaderState extends State<TaskPageHeader> {
               ]
             ),
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              SizedBox(
-                height: 35,
-                width: 300,
-                child: SearchBar(hintText: 'Search',)
-              ),
-              Spacer(),
-              // Icon(Icons.tune, color: Color.fromARGB(255, 210, 35, 60),),
-              ImageIcon(
-                AssetImage('assets/images/icons/filter.png'),
-                size: 30,
-                color: Color.fromARGB(255, 210, 35, 60),
-              ),
-              // Spacer(flex: 2,)
-            ]),
+          
+          HeaderSearchBar((p0) => null)
           ]
         ),
         );

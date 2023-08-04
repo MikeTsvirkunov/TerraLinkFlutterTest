@@ -13,7 +13,7 @@ class _MorePageState extends State<MorePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(color: Color.fromARGB(255, 215, 220, 231)),
+        decoration: const BoxDecoration(color: Color.fromARGB(255, 238, 240, 244)),
         child: const Column(
           children: <Widget>[
             Spacer(),

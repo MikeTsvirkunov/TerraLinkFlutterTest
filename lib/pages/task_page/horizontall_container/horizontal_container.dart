@@ -17,7 +17,7 @@ class _TaskCounterBlockState extends State<TaskCounterBlock> {
       height: 77,
       width: 144,
       padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(5),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         color: Colors.white

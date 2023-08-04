@@ -39,7 +39,7 @@ class _BlockTaskState extends State<TaskBlock> {
                   Text(
                     widget.typeOfTask,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 12,
                       color: Color.fromARGB(255, widget.red, widget.green, widget.blue)
                     ),
                   ),
@@ -47,13 +47,13 @@ class _BlockTaskState extends State<TaskBlock> {
                     widget.docName,
                     style: TextStyle(
                       fontWeight: FontWeight.bold, 
-                      fontSize: 25,
+                      fontSize: 18,
                       color: Color.fromARGB(255, widget.red, widget.green, widget.blue)
                     ),
                   ),
                   const Text(
                     'Автор: Панасенков Г.В.',
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
                   ),
                 ],
               )
@@ -64,11 +64,11 @@ class _BlockTaskState extends State<TaskBlock> {
               padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
-                color: Color.fromARGB(60, widget.red, widget.green, widget.blue)
+                color: Color.fromARGB(45, widget.red, widget.green, widget.blue)
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(widget.day,
                     style: TextStyle(
@@ -93,7 +93,7 @@ class _BlockTaskState extends State<TaskBlock> {
         Text(
             widget.description,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
           ),
       ]
       )

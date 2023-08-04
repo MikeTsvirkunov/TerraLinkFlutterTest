@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'horizontall_container/horizontal_scroll_bar.dart';
+import 'horizontall_container/horizontal_container.dart';
 import './task_block.dart';
 
 class TaskContainer extends StatefulWidget {
@@ -21,6 +22,18 @@ class _TaskContainerState extends State<TaskContainer> {
               borderRadius: BorderRadius.all(Radius.circular(20))),
           child: const Column(
             children: <Widget>[
+              // SingleChildScrollView(
+          //   scrollDirection: Axis.horizontal,
+          //   child: Row(
+          //     crossAxisAlignment: CrossAxisAlignment.center,
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
+          //       TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
+          //       TaskCounterBlock('Согласование', '6', 'assets/images/icons/Union.png'),
+          //     ],
+          //   ),
+          // ),
               // Text("Task1", textScaler: TextScaler.linear(20),),
               TaskBlock(
                   'Подписание',
