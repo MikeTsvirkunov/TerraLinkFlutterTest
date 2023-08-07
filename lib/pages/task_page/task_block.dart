@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_application_terra_link_test/global.dart';
 
 class TaskBlock extends StatefulWidget {
+  final List<Widget> paramsList;
   final String typeOfTask;
   final String docName;
   final String day;
@@ -10,7 +11,8 @@ class TaskBlock extends StatefulWidget {
   final int red;
   final int green;
   final int blue;
-  const TaskBlock(this.typeOfTask, this.docName, this.day, this.month, this.description, this.red, this.green, this.blue, {super.key});
+  final int alpha;
+  const TaskBlock(this.paramsList, this.typeOfTask, this.docName, this.day, this.month, this.description, this.red, this.green, this.blue, this.alpha, {super.key});
   @override
   State<TaskBlock> createState() => _BlockTaskState();
 }
@@ -19,7 +21,7 @@ class _BlockTaskState extends State<TaskBlock> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       width: double.maxFinite,
       decoration: const BoxDecoration(
         border: Border(bottom: BorderSide(color: Color.fromARGB(255, 230, 232, 235), width: 2)), 
@@ -35,7 +37,7 @@ class _BlockTaskState extends State<TaskBlock> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Text(
                     widget.typeOfTask,
                     style: TextStyle(
@@ -51,11 +53,7 @@ class _BlockTaskState extends State<TaskBlock> {
                       color: Color.fromARGB(255, widget.red, widget.green, widget.blue)
                     ),
                   ),
-                  const Text(
-                    'Автор: Панасенков Г.В.',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
-                  ),
-                ],
+                ] + widget.paramsList,
               )
             ),
             const Spacer(),
@@ -90,11 +88,15 @@ class _BlockTaskState extends State<TaskBlock> {
             ),
           ],
         ),
-        Text(
+        SizedBox(
+          width: double.maxFinite,
+          child: Text(
             widget.description,
             overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.left,
             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-          ),
+          )
+        ),
       ]
       )
     );

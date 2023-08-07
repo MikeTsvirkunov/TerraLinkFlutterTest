@@ -40,6 +40,12 @@ class _TaskContainerState extends State<TaskContainer> {
                 ),
               ),
               const TaskBlock(
+                  <Widget>[
+                    Text(
+                      'Автор: Панасенков Г.В. \nBlaBla',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
+                    ),
+                  ],
                   'Подписание',
                   'Служебная записка ПЗ456-890',
                   '23',
@@ -47,22 +53,38 @@ class _TaskContainerState extends State<TaskContainer> {
                   'Задача — проблемная ситуация с явно заданной целью, которую необходимо достичь; в более узком смысле задачей также называют саму',
                   243,
                   0,
-                  52),
+                  52,
+                  15
+                ),
               const TaskBlock(
+                  <Widget>[
+                    Text(
+                      'Автор: Панасенков Г.В. \nBlaBla',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
+                    ),
+                  ],
                   'Подписание',
                   'Служебная записка ПЗ456-890',
                   '23',
                   'дек',
                   'Задача — проблемная ситуация с явно заданной целью, которую необходимо достичь; в более узком смысле задачей также называют саму',
+                  0,
                   0,
                   0,
                   0),
               const TaskBlock(
+                  <Widget>[
+                    Text(
+                      'Автор: Панасенков Г.В. \nBlaBla',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
+                    ),
+                  ],
                   'Подписание',
                   'Служебная записка ПЗ456-890',
                   '23',
                   'дек',
                   'Задача — проблемная ситуация с явно заданной целью, которую необходимо достичь; в более узком смысле задачей также называют саму',
+                  0,
                   0,
                   0,
                   0),
