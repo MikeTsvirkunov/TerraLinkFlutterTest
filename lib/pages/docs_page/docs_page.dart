@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
 import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
+import 'package:flutter_application_terra_link_test/pages/docs_page/task_block.dart';
+import 'package:flutter_application_terra_link_test/functions/builders/task_block_bulilder.dart';
 
 class DocsPage extends StatefulWidget {
   const DocsPage({super.key});
@@ -40,10 +42,14 @@ class _DocsPageState extends State<DocsPage> {
             String a = snapshot.data ?? '{}';
             List<dynamic> x = ((convert.jsonDecode(a) as Map<String, dynamic>)['results']['value']['assignments']);
             
-            return Center(
-              child: Text(
-                'res: ${x[0]}'
-              )
+            return Container(
+              width: double.maxFinite,
+              height: double.maxFinite,
+              color: Colors.amber,
+              child: taskBlockBuilder(x[0]),
+              // child: Text(
+              //   'res: ${x[0]}'
+              // )
             );
           }
         }
