@@ -1,21 +1,53 @@
+import 'dart:convert' as convert;
 import 'package:flutter/material.dart';
-import 'package:requests/requests.dart';
-import 'package:flutter_application_terra_link_test/global.dart';
+import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
+import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
+import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
 
-// var getKeyAuth = funConatiner['getKeyAuth'];
-// getKeyAuth != null ? getKeyAuth?.call() : 'None'; 
-
-class MorePage extends StatefulWidget {
-  const MorePage({super.key});
+class DocsPage extends StatefulWidget {
+  const DocsPage({super.key});
   @override
-  State<MorePage> createState() => _MorePageState();
+  State<DocsPage> createState() => _DocsPageState();
 }
 
-class _MorePageState extends State<MorePage> {
+class _DocsPageState extends State<DocsPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('a'),
+    var getKeyAuth = containerExtractiorFunction<Function>(funConatiner, 'getKeyAuth');
+    var getTaskList = containerExtractiorFunction<Function>(funConatiner, 'getTaskList');
+    var getPass = containerExtractiorFunction<Function>(funConatiner, 'getPass');
+    // var getTaskListProcessor = containerExtractiorFunction<Function>(
+    //     funConatiner, 'getTaskListProcessor');
+    // var responesCodeProcessor = containerExtractiorFunction<Function>(
+    //     funConatiner, 'responesCodeProcessor');
+    Future<String> f() async {
+      var acc = await getPass();
+      var x =  await getKeyAuth(varConatiner['AuthLink'], acc['username'], acc['password'],);
+      var x2 = await getTaskList(varConatiner['TaskLink'], x);
+      return x2;
+    }
+
+    return FutureBuilder<String>(
+      future: f(), // function where you call your api
+      builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+        // AsyncSnapshot<Your object type>
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: Text('Please wait its loading...'));
+        } else {
+          if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            String a = snapshot.data ?? '{}';
+            List<dynamic> x = ((convert.jsonDecode(a) as Map<String, dynamic>)['results']['value']['assignments']);
+            
+            return Center(
+              child: Text(
+                'res: ${x[0]}'
+              )
+            );
+          }
+        }
+      },
     );
   }
 }
