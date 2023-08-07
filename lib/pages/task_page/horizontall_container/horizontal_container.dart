@@ -14,10 +14,10 @@ class _TaskCounterBlockState extends State<TaskCounterBlock> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 77,
+      height: 80,
       width: 144,
       padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(5),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         color: Colors.white
@@ -29,6 +29,7 @@ class _TaskCounterBlockState extends State<TaskCounterBlock> {
           SizedBox(
             width: 144,
             child: Row(
+
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
@@ -41,16 +42,18 @@ class _TaskCounterBlockState extends State<TaskCounterBlock> {
                   padding: const EdgeInsets.all(5),
                   child: Text(
                     widget.counter,
+                    style: const TextStyle(fontSize: 20),
                   ),
                 ),
                 // Spacer(),
-                ImageIcon(AssetImage(widget.icon))
+                ImageIcon(AssetImage(widget.icon), size: 25,)
               ],
             )
           ),
+          const Spacer(flex: 2,),
           Text(
             widget.name,
-            textScaler: const TextScaler.linear(0.8),
+            textScaler: const TextScaler.linear(1.2),
           )
         ]
       ),

@@ -17,8 +17,8 @@ class _HorizontalScrollBarState extends State<HorizontalScrollBar> {
         width: double.maxFinite,
         alignment: AlignmentDirectional.center,
         // height: 100,
-        padding: const EdgeInsets.all(30),
-        margin: const EdgeInsets.fromLTRB(10, 10, 10, 100),
+        padding: const EdgeInsets.all(5),
+        margin: const EdgeInsets.fromLTRB(5, 5, 5, 100),
         decoration: const BoxDecoration(
             color: Color.fromARGB(255, 205, 210, 221),
             borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -44,14 +44,6 @@ class _HorizontalScrollBarState extends State<HorizontalScrollBar> {
                 ],
               ),
             ),
-            const Text(
-              "Task2",
-              textScaler: TextScaler.linear(10),
-            ),
-            const Text(
-              "Task3",
-                textScaler: TextScaler.linear(10),
-            )
           ],
         )
       ),
