@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_terra_link_test/pages/task_page/task_block.dart';
+import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
+import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
 
 TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
   
@@ -17,17 +19,7 @@ TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
     b = 0;
     a = 0;
   }
-  
-  // if (taskDescription["from_user_name"] != "null"){
-  //   paramsList = paramsList.isNotEmpty ? '$paramsList\n' : paramsList;
-  //   paramsList += 'Автор: ${taskDescription["from_user_name"]}';
-  // }
-  // if (taskDescription["to_user_name"] != "null") {
-  //   paramsList = paramsList.isNotEmpty ? '$paramsList\n' : paramsList;
-  //   paramsList += 'Исполнитель: ${taskDescription["to_user_name"]}';
-  // }
-  Map<String, String> paramsKeysValues = {"from_user_name": "Автор", "to_user_name": "Исполнитель"};
-
+  Map<String, String> paramsKeysValues = containerExtractiorFunction<Map<String, String>>(varConatiner, 'taskBlockExtraParamsMap');
   for (var element in paramsKeysValues.keys) {
     if (taskDescription[element] != "null") {
         paramsList = paramsList.isNotEmpty ? '$paramsList\n' : paramsList;
@@ -44,7 +36,7 @@ TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
     taskDescription['name'], 
     taskDescription['document'], 
     time.day.toString(), 
-    time.month.toString(), 
+    containerExtractiorFunction<Map<int, String>>(varConatiner, 'monthNumNameMap')[time.month].toString(), 
     taskDescription['title'], 
     r, 
     g, 
