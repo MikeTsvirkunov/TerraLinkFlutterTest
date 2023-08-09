@@ -4,7 +4,7 @@ import 'package:flutter_application_terra_link_test/container_extractor_function
 import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
 
 TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
-  
+
   final time = DateTime.parse(taskDescription['date_ready']);
   int r, g, b, a;
   String paramsList = '';
@@ -37,7 +37,7 @@ TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
     taskDescription['document'], 
     time.day.toString(), 
     containerExtractiorFunction<Map<int, String>>(varConatiner, 'monthNumNameMap')[time.month].toString(), 
-    taskDescription['title'], 
+    taskDescription['title'].toString(), 
     r, 
     g, 
     b,
