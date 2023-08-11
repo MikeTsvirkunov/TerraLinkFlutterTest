@@ -37,7 +37,7 @@ TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
     taskDescription['document'], 
     time.day.toString(), 
     containerExtractiorFunction<Map<int, String>>(varConatiner, 'monthNumNameMap')[time.month].toString(), 
-    taskDescription['title'], 
+    taskDescription['title'].toString(), 
     r, 
     g, 
     b,
