@@ -4,7 +4,7 @@ import 'package:flutter_application_terra_link_test/container_extractor_function
 import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
 
 TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
-  
+
   final time = DateTime.parse(taskDescription['date_ready']);
   int r, g, b, a;
   String paramsList = '';

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
+import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
+import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
 import 'header/header.dart';
-import 'package:flutter_application_terra_link_test/pages/task_page/task_container.dart';
+import 'task_container.dart';
 // import './horizontall_container/horizontal_container.dart';
 
 class ColapseableAppBar extends StatefulWidget {
@@ -27,6 +30,22 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    var getKeyAuth =
+        containerExtractiorFunction<Function>(funConatiner, 'getKeyAuth');
+    var getTaskList =
+        containerExtractiorFunction<Function>(funConatiner, 'getTaskList');
+    var getPass =
+        containerExtractiorFunction<Function>(funConatiner, 'getPass');
+    Future<String> f() async {
+      var acc = await getPass();
+      var x = await getKeyAuth(
+        varConatiner['AuthLink'],
+        acc['username'],
+        acc['password'],
+      );
+      var x2 = await getTaskList(varConatiner['TaskLink'], x);
+      return x2;
+    }
     return Scaffold(
       backgroundColor: Colors.white,
       drawerEdgeDragWidth: double.maxFinite,
