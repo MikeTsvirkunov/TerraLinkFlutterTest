@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MovingName extends StatefulWidget {
+  final String text;
   final double _scrollPosition;
-  const MovingName(this._scrollPosition, {super.key});
+  const MovingName(this.text, this._scrollPosition, {super.key});
   @override
   State<MovingName> createState() => _MovingNameState();
 }

@@ -1,61 +1,27 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_application_terra_link_test/global.dart';
 
-class TaskCounterBlock extends StatefulWidget {
-  final String name;
-  final String counter;
-  final String icon;
-  const TaskCounterBlock(this.name, this.counter, this.icon, {super.key});
+class TaskCountersContainer extends StatefulWidget {
+  final List<Widget> listOfTaskCounterBlocks;
+  const TaskCountersContainer(this.listOfTaskCounterBlocks, {super.key});
   @override
-  State<TaskCounterBlock> createState() => _TaskCounterBlockState();
+  State<TaskCountersContainer> createState() => _TaskCountersContainerState();
 }
 
-class _TaskCounterBlockState extends State<TaskCounterBlock> {
+class _TaskCountersContainerState extends State<TaskCountersContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
-      width: 144,
-      padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.all(5),
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        color: Colors.white
-      ),
-      
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 144,
-            child: Row(
-
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                    color: Colors.white,
-                  ),
-                  height: 35,
-                  width: 39,
-                  padding: const EdgeInsets.all(5),
-                  child: Text(
-                    widget.counter,
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                ),
-                // Spacer(),
-                ImageIcon(AssetImage(widget.icon), size: 25,)
-              ],
-            )
-          ),
-          const Spacer(flex: 2,),
-          Text(
-            widget.name,
-            textScaler: const TextScaler.linear(1.2),
-          )
-        ]
+      color: const Color.fromARGB(255, 240, 242, 245),
+      width: double.maxFinite,
+      height: 120,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: widget.listOfTaskCounterBlocks,
+        ),
       ),
     );
   }

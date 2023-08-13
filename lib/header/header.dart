@@ -3,8 +3,9 @@ import './search_bar.dart';
 import 'moving_name.dart';
 
 class TaskPageHeader extends StatefulWidget {
+  final String text;
   final double _scrollPosition;
-  const TaskPageHeader(this._scrollPosition, {super.key});
+  const TaskPageHeader(this.text, this._scrollPosition, {super.key});
 
   @override
   State<TaskPageHeader> createState() => _TaskPageHeaderState();
@@ -21,10 +22,10 @@ class _TaskPageHeaderState extends State<TaskPageHeader> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          MovingName(widget._scrollPosition),
+          MovingName(widget.text, widget._scrollPosition),
           HeaderSearchBar((p0) => null)
-          ]
-        ),
-        );
+        ]
+      ),
+    );
   }
 }
