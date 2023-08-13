@@ -21,7 +21,7 @@ TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
   }
   Map<String, String> paramsKeysValues = containerExtractiorFunction<Map<String, String>>(varConatiner, 'taskBlockExtraParamsMap');
   for (var element in paramsKeysValues.keys) {
-    if (taskDescription[element] != "null") {
+    if (taskDescription[element] != null) {
         paramsList = paramsList.isNotEmpty ? '$paramsList\n' : paramsList;
         paramsList += '${paramsKeysValues[element]}: ${taskDescription[element]}';
       }

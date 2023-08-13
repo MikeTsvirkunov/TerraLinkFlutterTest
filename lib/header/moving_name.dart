@@ -26,12 +26,12 @@ class _MovingNameState extends State<MovingName> {
                     ? Alignment.centerLeft
                     : Alignment.center,
             child: SizedBox(
-              width: 160,
+              // width: 10,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: widget._scrollPosition == 0 ? MainAxisAlignment.start : MainAxisAlignment.center,
                 children:[ 
                    Text(
-                    'Задачи',
+                      widget.text,
                     style: TextStyle(
                       fontSize: widget._scrollPosition == 0 ? 30 : 20,
                       // fontSize: widget._scrollPosition == 0 ? 30 : 30,
