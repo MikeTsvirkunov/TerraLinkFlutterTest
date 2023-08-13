@@ -30,22 +30,6 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    var getKeyAuth =
-        containerExtractiorFunction<Function>(funConatiner, 'getKeyAuth');
-    var getTaskList =
-        containerExtractiorFunction<Function>(funConatiner, 'getTaskList');
-    var getPass =
-        containerExtractiorFunction<Function>(funConatiner, 'getPass');
-    Future<String> f() async {
-      var acc = await getPass();
-      var x = await getKeyAuth(
-        varConatiner['AuthLink'],
-        acc['username'],
-        acc['password'],
-      );
-      var x2 = await getTaskList(varConatiner['TaskLink'], x);
-      return x2;
-    }
     return Scaffold(
       backgroundColor: Colors.white,
       drawerEdgeDragWidth: double.maxFinite,

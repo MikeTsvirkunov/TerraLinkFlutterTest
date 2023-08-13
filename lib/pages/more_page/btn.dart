@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class BTN extends StatefulWidget {
   final String text;
-  final ImageIcon icon;
+  final String icon;
   const BTN(this.icon, this.text, {super.key});
   @override
   State<BTN> createState() => _BTNState();
@@ -21,29 +21,31 @@ class _BTNState extends State<BTN> {
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 0.1,
             blurRadius: 7,
-            offset: Offset(0, 10), // changes position of shadow
+            offset: const Offset(0, 10), // changes position of shadow
           ),
         ],
       ),
       child: TextButton(
         onPressed: () => {},
         style: const ButtonStyle(
+          
           backgroundColor: MaterialStatePropertyAll(Colors.white),
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
             )
           ),
-          overlayColor: MaterialStatePropertyAll(Color.fromARGB(255, 170, 0, 24))
+          overlayColor: MaterialStatePropertyAll(Color.fromARGB(255, 170, 0, 24)),
+          
         ),
         child: SizedBox(
           height: 40,
           child: Row(
             children: [
-              const ImageIcon(AssetImage('assets/images/icons/stat.png'), size: 20,),
-              Text(widget.text),
+              ImageIcon(AssetImage(widget.icon), size: 20, color: const Color.fromARGB(255, 170, 0, 24), ),
+              Text(widget.text, style: const TextStyle(color: Colors.black),),
               const Spacer(),
-              const Icon(Icons.navigate_next)
+              const Icon(Icons.navigate_next, color: Color.fromARGB(255, 209, 209, 214), size: 30,)
             ],
           )
         )

@@ -12,9 +12,9 @@ class _BTNsBlockState extends State<BTNsBlock> {
   Widget build(BuildContext context) {
     return const Column(
       children: <Widget>[
-        BTN(ImageIcon(AssetImage('assets/images/icons/profile.png'), size: 0.5,), 'Профиль'),
-        BTN(ImageIcon(AssetImage('assets/images/icons/stat.png'), size: 0.5), 'Отчёты'),
-        BTN(ImageIcon(AssetImage('assets/images/icons/search.png'), size: 0.5), 'Поиск'),
+        BTN('assets/images/icons/profile.png', 'Профиль'),
+        BTN('assets/images/icons/stat.png', 'Отчёты'),
+        BTN('assets/images/icons/search.png', 'Поиск'),
       ]
     );
   }
