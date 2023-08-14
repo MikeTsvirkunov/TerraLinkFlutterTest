@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
 
 class ProfileBlock extends StatefulWidget {
-  const ProfileBlock({super.key});
+
+  final Image photo;
+  final String name;
+  const ProfileBlock(this.photo, this.name, {super.key});
   @override
   State<ProfileBlock> createState() => _ProfileBlockState();
 }
 
-class _ProfileBlockState extends State<ProfileBlock> {
+class _ProfileBlockState extends State<ProfileBlock> { 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return 
+    Column(
       children: <Widget>[
         ClipRRect(
           borderRadius: BorderRadius.circular(36.0),
-          child: const Image(image: AssetImage('assets/images/user/user.jpg')),
+          child: widget.photo,
         ),
-        const SizedBox(
-            width: 200,
-            child: Text(
-              'Андрей Владимирович Стасенко',
-              textAlign: TextAlign.center,
-            )),
+        SizedBox(
+          width: 200,
+          child: Text(
+            widget.name,
+            textAlign: TextAlign.center,
+          )
+        ),
       ],
     );
   }
