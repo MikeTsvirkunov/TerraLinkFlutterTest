@@ -6,6 +6,7 @@ import 'package:flutter_file_view/flutter_file_view.dart';
 import 'package:flutter/src/gestures/tap.dart';
 import 'package:url_launcher/url_launcher.dart';
 // import 'btn_block.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class TaskWatchPage extends StatefulWidget {
   final String name;
@@ -27,8 +28,23 @@ class _TaskWatchPageState extends State<TaskWatchPage> {
   @override
   Widget build(BuildContext context) {
     // var x = FlutterFileView();
-    
-    FlutterFileView.init();
+    var yourLink = 'http://www.africau.edu/images/default/sample.pdf';
+    var controller = WebViewController()
+    ..setJavaScriptMode(JavaScriptMode.unrestricted)
+    ..setBackgroundColor(const Color(0x00000000))
+    ..setNavigationDelegate(
+      NavigationDelegate(
+        onProgress: (int progress) {
+          // Update loading bar.
+        },
+        onPageStarted: (String url) {},
+        onPageFinished: (String url) {},
+        onWebResourceError: (WebResourceError error) {},
+      ),
+    )
+    ..loadRequest(Uri.parse('https://docs.google.com/gview?embedded=true&url=$yourLink'));
+
+    // FlutterFileView.init();
     // var x = FileView(controller: FileViewController.asset('assets/files/FileTest.txt'));
     return CupertinoPageScaffold(
       backgroundColor: Colors.white,
@@ -49,7 +65,7 @@ class _TaskWatchPageState extends State<TaskWatchPage> {
       child: Container(
         padding: const EdgeInsets.fromLTRB(0, 110, 0, 0),
         width: double.maxFinite,
-        child: FileView(controller: x) // MyApp(),
+        child: WebViewWidget(controller: controller,) 
       ) // TaskWatchHeader('К списку задач', widget.name))
     );
   }
