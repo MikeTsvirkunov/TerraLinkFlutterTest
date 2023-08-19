@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../header/header.dart';
-import 'task_container.dart';
+import 'docs_container.dart';
 
 class ColapseableAppBar extends StatefulWidget {
   const ColapseableAppBar({super.key});
@@ -35,7 +35,7 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
         toolbarHeight: 98,
         title: TaskPageHeader('Документы', _scrollPosition)
       ),
-      body: TaskContainer(_scrollController),
+      body: DocsContainer(_scrollController),
     );
   }
 }

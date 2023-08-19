@@ -4,9 +4,9 @@ import './tabs/add_btn.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
 var tabsList = <Widget>[
-  const MainAppTab('assets/images/icons/task.png', 'Задачи', 38),
-  const MainAppTab('assets/images/icons/bookmark.png', 'Поручения', 56),
+  const MainAppTab('assets/images/icons/task.png', 'Задачи', 42),
+  const MainAppTab('assets/images/icons/bookmark.png', 'Поручения', 42),
   const AddBtn(),
-  const MainAppTab('assets/images/icons/folder.png', 'Файлы', 51),
-  const MainAppTab('assets/images/icons/More.png', 'Ещё', 38),
+  const MainAppTab('assets/images/icons/folder.png', 'Файлы', 42),
+  const MainAppTab('assets/images/icons/More.png', 'Ещё', 42),
 ];

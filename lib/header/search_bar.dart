@@ -31,7 +31,8 @@ class _HeaderSearchBarState extends State<HeaderSearchBar> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.71, 
                 child: const SearchBar(
-                  hintText: '\uE11A   Поиск',
+                  hintText: ' Поиск',
+                  leading: Icon(Icons.search),
                   textStyle: MaterialStatePropertyAll(TextStyle()),
                   surfaceTintColor: MaterialStatePropertyAll(Color.fromARGB(0, 240, 242, 245)),
                   overlayColor: MaterialStatePropertyAll(Color.fromARGB(0, 240, 242, 245)),

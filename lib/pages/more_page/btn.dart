@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/task_watch_page.dart';
 
 class BTN extends StatefulWidget {
   final String text;
@@ -26,7 +28,12 @@ class _BTNState extends State<BTN> {
         ],
       ),
       child: TextButton(
-        onPressed: () => {},
+        onPressed: () => {
+            Navigator.push(
+            context,
+            CupertinoPageRoute(builder: (context) => TaskWatchPage(widget.text))
+        )
+        },
         style: const ButtonStyle(
           
           backgroundColor: MaterialStatePropertyAll(Colors.white),

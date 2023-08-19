@@ -1,12 +1,15 @@
+import 'package:flutter_application_terra_link_test/functions/builders/file_viewer_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/profile_block_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/task_block_bulilder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/task_counter_block_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/checkers/future_builder_checker.dart';
+import 'package:flutter_application_terra_link_test/functions/generators/generate_docs_block_list.dart';
 import 'package:flutter_application_terra_link_test/functions/generators/generate_task_block_list.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/get_json_profile_list.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/get_json_orders_list.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/get_json_tasks_list.dart';
 import 'package:flutter_application_terra_link_test/functions/processors/success_auth_request_future_builder_processor.dart';
+import 'package:flutter_application_terra_link_test/functions/processors/success_docs_request_future_builder_processor.dart';
 import 'package:flutter_application_terra_link_test/functions/processors/success_tasks_request_future_builder_processor.dart';
 import 'package:flutter_application_terra_link_test/functions/requests/order_list_get_function.dart';
 import 'package:flutter_application_terra_link_test/functions/requests/profile_get_function.dart';
@@ -30,11 +33,15 @@ final funConatiner = <String, Function>{
   'generateTaskBlockList': generateTaskBlockList,
   'futureBuilderChecker': futureBuilderChecker,
   'successTasksRequestFutureBuilderProcessor': successTasksRequestFutureBuilderProcessor,
+  'successDocsRequestFutureBuilderProcessor': successDocsRequestFutureBuilderProcessor,
   'orderListGetFunction': orderListGetFunction,
   'getJsonOrdersList': getJsonOrdersList,
   'getJsonProfileMap': getJsonProfileMap,
   'profileListGetFunction': profileListGetFunction,
   'successAuthRequestFutureBuilderProcessor': successAuthRequestFutureBuilderProcessor,
   'profileBlockBuilder': profileBlockBuilder,
+  'generateDocsBlockList': generateDocsBlockList,
+  'docsCountersContainerBuilder': taskCountersContainerBuilder,
+  'fileViewerBuilder': fileViewerBuilder,
   'getLookupsCount': () {return 0;},
 };

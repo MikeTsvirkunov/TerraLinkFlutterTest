@@ -24,8 +24,10 @@ class _MainAppTabtate extends State<MainAppTab> {
           ImageIcon(AssetImage(widget.img)),
           Text(
             widget.text,
+            maxLines: 1,
+            textWidthBasis: TextWidthBasis.parent,
             style: const TextStyle(
-              fontSize: 11, 
+              fontSize: 10, 
               overflow: TextOverflow.visible
             ),
           )

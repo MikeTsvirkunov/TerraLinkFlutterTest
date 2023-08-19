@@ -33,7 +33,7 @@ class _BottomTabBarState extends State<BottomTabBar>
         children: pageList,
       ),
       bottomNavigationBar: TabBar(
-        tabAlignment: TabAlignment.center,
+        tabAlignment: TabAlignment.fill,
         // isScrollable: true,
         indicator: ShapeDecoration(
             // color: Colors.white,
@@ -45,7 +45,8 @@ class _BottomTabBarState extends State<BottomTabBar>
         unselectedLabelColor: const Color.fromARGB(255, 151, 162, 187),
         labelColor: Colors.black, //For Selected tab
         controller: _tabController,
-        tabs: tabsList
+        tabs: tabsList,
+        
       ),
     );
   }
