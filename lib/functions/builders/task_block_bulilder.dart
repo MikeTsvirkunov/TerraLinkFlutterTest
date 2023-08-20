@@ -27,6 +27,7 @@ TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
       }
   }
   return TaskBlock(
+    taskDescription['document_id'].toString(),
     <Widget>[
       Text(
         paramsList,

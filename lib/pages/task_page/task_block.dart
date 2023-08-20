@@ -10,11 +10,12 @@ class TaskBlock extends StatefulWidget {
   final String day;
   final String month;
   final String description;
+  final String nodeId;
   final int red;
   final int green;
   final int blue;
   final int alpha;
-  const TaskBlock(this.paramsList, this.typeOfTask, this.docName, this.day, this.month, this.description, this.red, this.green, this.blue, this.alpha, {super.key});
+  const TaskBlock(this.nodeId, this.paramsList, this.typeOfTask, this.docName, this.day, this.month, this.description, this.red, this.green, this.blue, this.alpha, {super.key});
   @override
   State<TaskBlock> createState() => _BlockTaskState();
 }
@@ -24,10 +25,9 @@ class _BlockTaskState extends State<TaskBlock> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        print('Tap');
         Navigator.push(
             context,
-            CupertinoPageRoute(builder: (context) => TaskWatchPage(widget.docName))
+            CupertinoPageRoute(builder: (context) => TaskWatchPage(widget.nodeId, widget.docName,))
         );
         
       },

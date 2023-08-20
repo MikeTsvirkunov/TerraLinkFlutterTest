@@ -1,4 +1,4 @@
-import 'package:flutter_application_terra_link_test/functions/builders/file_viewer_builder.dart';
+import 'package:flutter_application_terra_link_test/functions/builders/file_display_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/profile_block_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/task_block_bulilder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/task_counter_block_builder.dart';
@@ -42,6 +42,6 @@ final funConatiner = <String, Function>{
   'profileBlockBuilder': profileBlockBuilder,
   'generateDocsBlockList': generateDocsBlockList,
   'docsCountersContainerBuilder': taskCountersContainerBuilder,
-  'fileViewerBuilder': fileViewerBuilder,
+  'fileDisplayBuilder': fileDisplayBuilder,
   'getLookupsCount': () {return 0;},
 };
