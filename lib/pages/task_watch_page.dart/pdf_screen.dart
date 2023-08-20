@@ -114,7 +114,6 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
                     color: Colors.white,
                     fontSize: 15,
                     overflow: TextOverflow.clip,
-                    backgroundColor: Colors.amber
                   ),
                 ),
               )
