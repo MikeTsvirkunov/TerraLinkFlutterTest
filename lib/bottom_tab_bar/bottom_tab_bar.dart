@@ -43,7 +43,7 @@ class _BottomTabBarState extends State<BottomTabBar>
         ),
         labelStyle: const TextStyle(color: Colors.black),
         unselectedLabelColor: const Color.fromARGB(255, 151, 162, 187),
-        labelColor: Colors.black, //For Selected tab
+        labelColor: Colors.black,
         controller: _tabController,
         tabs: tabsList,
         

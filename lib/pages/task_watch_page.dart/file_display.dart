@@ -58,8 +58,13 @@ class _FileDisplayState extends State<FileDisplay> {
     return FutureBuilder(
       future: remotePDFpath, 
       builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-        if (snapshot.data != null|| snapshot.data != null) return PDFScreen(path: snapshot.data);
-        return const Center(child: Text('blabla', style: TextStyle(color: Colors.black38),),);
+        if (snapshot.hasData) return PDFScreen(path: snapshot.data);
+        return const Center(
+          child: Text(
+            'File loading to display', 
+            style: TextStyle(color: Colors.black38),
+          ),
+        );
       }
     );
   }

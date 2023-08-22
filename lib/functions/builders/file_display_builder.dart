@@ -8,6 +8,8 @@ import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/f
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
+import 'package:path_provider/path_provider.dart';
+
 Future<Widget> fileDisplayBuilder(String node_id) async {
   var getKeyAuth = containerExtractiorFunction<Function>(funConatiner, 'getKeyAuth');
   var acc = await containerExtractiorFunction<Function>(funConatiner, 'getPass')();
@@ -19,7 +21,18 @@ Future<Widget> fileDisplayBuilder(String node_id) async {
   List<dynamic> x3 = ((convert.jsonDecode(response.body) as Map<String, dynamic>)['results']);
   for (var e in x3){
     String id = e['id'].toString();
-    // File.fromUri(Uri.parse('http://ot-lo-be-dev1.ot.dev.local/otcs/llisapi.dll/api/v1/nodes/$id/content/doc$id'));
+    var response2 = await http.get(
+      Uri.parse('http://ot-lo-be-dev1.ot.dev.local/otcs/llisapi.dll/api/v1/nodes/$id/content/doc$id'),
+      headers: <String, String>{
+        'otcsticket': ticket
+      }
+    );
+    if (response2.statusCode == 200){
+      var dir = await getApplicationDocumentsDirectory();
+    }
+    // File file = File("${dir.path}/$id");
+    // File('${getApplicationDocumentsDirectory()}').writeAsBytes(response.bodyBytes);
+    // File.fromUri();
   }
   
   return FileDisplay();
