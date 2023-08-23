@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/file_display.dart';
 
 var taskWatchSectionsPagessList = <Widget>[
-  const Center(
-    child: Text('Файлы'),
-  ),
+  // FileDisplay(),
   const Center(
     child: Text('Файлы'),
   ),

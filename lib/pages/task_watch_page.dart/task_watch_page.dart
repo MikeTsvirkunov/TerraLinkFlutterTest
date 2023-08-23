@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
 import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
 import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/back_btn.dart';
+import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/deadline_section/deadline_section.dart';
 import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/file_display.dart';
 import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/task_watch_block.dart';
 
@@ -32,9 +33,17 @@ class _TaskWatchPageState extends State<TaskWatchPage> {
         leading: BackBtn()
       ),
       child: Container(
-        padding: const EdgeInsets.fromLTRB(0, 00, 0, 0),
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         width: double.maxFinite,
+        // height: 500,
         child: TaskWatchBlock(nodeId: widget.nodeId, docName: widget.docName,)
+        // Column(
+        //   mainAxisAlignment: MainAxisAlignment.start,
+        //   children: [
+        //     // DeadLineSection(deadLineDate: DateTime(2017, 9, 7, 17, 30)),
+        //     TaskWatchBlock(nodeId: widget.nodeId, docName: widget.docName,)
+        //   ],
+        )
         // FutureBuilder(
         //   future: fileDisplay,
         //   builder: (context, AsyncSnapshot<Widget> snapshot) {
@@ -51,7 +60,7 @@ class _TaskWatchPageState extends State<TaskWatchPage> {
         //     );
         //   },
         // ) 
-      )
+      // )
     );
   }
 }

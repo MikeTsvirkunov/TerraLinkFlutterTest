@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/task_watch_sections/pages/task_watch_sections_pages_list.dart';
+import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
+import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
+import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/deadline_section/deadline_section.dart';
 import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/task_watch_sections/task_watch_sections_tab_bar/task_watch_sections_tab_bar.dart';
 import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/task_watch_sections/task_watch_sections_tab_bar/task_watch_sections_tabs_list.dart';
 
@@ -32,6 +34,7 @@ class _TaskWatchBlockState extends State<TaskWatchBlock> with TickerProviderStat
       appBar: AppBar(
         centerTitle: false,
         leadingWidth: 0,
+        leading: const Text(''),
         title: Text(
           widget.docName,
           style: const TextStyle(
@@ -39,13 +42,19 @@ class _TaskWatchBlockState extends State<TaskWatchBlock> with TickerProviderStat
           ),
         ),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(10),
-          child: TaskWatchSectionTabBar(tabController: _tabController,),
+          preferredSize: const Size.fromHeight(100),
+          child:
+          Column(
+            children: [ 
+              DeadLineSection(deadLineDate: DateTime(2017, 9, 7, 17, 30)),
+              TaskWatchSectionTabBar(tabController: _tabController,),
+            ]
+          )
         )
       ),
       body: TabBarView(
         controller: _tabController,
-        children: taskWatchSectionsPagessList,
+        children: containerExtractiorFunction(funConatiner, 'taskWatchSectionPagesGetter')(widget.nodeId),
       ),
     );
   }

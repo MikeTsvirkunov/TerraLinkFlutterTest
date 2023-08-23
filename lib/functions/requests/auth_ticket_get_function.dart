@@ -3,7 +3,6 @@ import 'dart:convert' as convert;
 
 
 Future<String> authTicketGetFunction(
-  String url,
   String username,
   String password,
 ) async {

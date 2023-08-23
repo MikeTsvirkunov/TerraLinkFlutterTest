@@ -9,7 +9,6 @@ Future<List<dynamic>> getJsonOrdersList() async {
   var getPass = containerExtractiorFunction<Function>(funConatiner, 'getPass');
   var acc = await getPass();
   var x = await getKeyAuth(
-    varConatiner['AuthLink'],
     acc['username'],
     acc['password'],
   );
