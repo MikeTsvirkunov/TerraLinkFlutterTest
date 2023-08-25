@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/task_watch_page.dart';
+import 'package:flutter_application_terra_link_test/pages/task_watch_page/task_watch_page.dart';
 
 class BTN extends StatefulWidget {
   final String text;
@@ -31,7 +31,7 @@ class _BTNState extends State<BTN> {
         onPressed: () => {
             Navigator.push(
             context,
-            CupertinoPageRoute(builder: (context) => TaskWatchPage('45036380', widget.text, deadLineDay: '1', deadLineMonth: '1',))
+            CupertinoPageRoute(builder: (context) => TaskWatchPage('45036380', widget.text, deadLineDate: DateTime(2017, 9, 7, 17, 30)))
         )
         },
         style: const ButtonStyle(

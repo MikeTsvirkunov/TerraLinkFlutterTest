@@ -5,8 +5,8 @@ import 'package:flutter_application_terra_link_test/containers/global_functions.
 // import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/task_watch_sections/pages/requisites_page/common_requisites_block.dart';
 
 class RequisitesPage extends StatefulWidget {
-  final String nodeId;
-  const RequisitesPage({Key? key, required this.nodeId}) : super(key: key);
+  // final String nodeId;
+  const RequisitesPage({Key? key}) : super(key: key);
   @override
   State<RequisitesPage> createState() => _RequisitesPageState();
 }
@@ -25,7 +25,8 @@ class _RequisitesPageState extends State<RequisitesPage> {
     return FutureBuilder(
       future: requisitesPageParams, 
       builder: (BuildContext context, AsyncSnapshot<Map<String, dynamic>> snapshot){
-        return containerExtractiorFunction<Function>(funConatiner, 'requisitesPageBuilder')<Widget>(context, snapshot);
+        if (snapshot.data != null){return containerExtractiorFunction<Function>(funConatiner, 'commonRequisitesOfWatchingTaskPageBuilder')(snapshot.data);}
+        return containerExtractiorFunction<Function>(funConatiner, 'commonRequisitesOfWatchingTaskPageBuilder')({'s': 'a'});
       }
     );
   }

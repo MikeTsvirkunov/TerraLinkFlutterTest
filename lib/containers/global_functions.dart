@@ -1,3 +1,4 @@
+import 'package:flutter_application_terra_link_test/functions/builders/common_requisites_of_watching_task_page_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/file_display_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/profile_block_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/requisites_page_builder.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_application_terra_link_test/functions/builders/task_coun
 import 'package:flutter_application_terra_link_test/functions/checkers/future_builder_checker.dart';
 import 'package:flutter_application_terra_link_test/functions/generators/generate_docs_block_list.dart';
 import 'package:flutter_application_terra_link_test/functions/generators/generate_task_block_list.dart';
+import 'package:flutter_application_terra_link_test/functions/getters/common_requisites_getter.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/get_file.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/get_json_profile_list.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/get_json_orders_list.dart';
@@ -51,11 +53,13 @@ final funConatiner = <String, Function>{
   'fileDisplayGetter': fileDisplayGetter,
   'requisitesPageBuilder': requisitesPageBuilder,
   'taskWatchSectionsPagessListGetter': taskWatchSectionsPagessListGetter,
-  'requisitesPageParamsGetter': requisitesPageParamsGetter,
+  'requisitesPageParamsGetter': commonRequisitesOfWatchingTaskGetter,
   'getLookupsCount': () {return 0;},
   'getInfoRKAtributes': getInfoRKAtributes,
   'commonRequisites': getInfoRKAtributes,
   'getFile': createFileOfPdfUrl,
   'fileDisplayBuilder': fileDisplayBuilder,
-  'taskWatchSectionPagesGetter':  taskWatchSectionPagesGetter
+  'taskWatchSectionPagesGetter':  taskWatchSectionPagesGetter,
+  'commonRequisitesOfWatchingTaskGetter': commonRequisitesOfWatchingTaskGetter,
+  'commonRequisitesOfWatchingTaskPageBuilder': commonRequisitesOfWatchingTaskPageBuilder,
 };

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
 import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
-import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/deadline_section/deadline_section.dart';
-import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/task_watch_sections/task_watch_sections_tab_bar/task_watch_sections_tab_bar.dart';
-import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/task_watch_sections/task_watch_sections_tab_bar/task_watch_sections_tabs_list.dart';
+import 'package:flutter_application_terra_link_test/pages/task_watch_page/deadline_section/deadline_section.dart';
+import 'package:flutter_application_terra_link_test/pages/task_watch_page/task_watch_sections/task_watch_sections_tab_bar/task_watch_sections_tab_bar.dart';
+import 'package:flutter_application_terra_link_test/pages/task_watch_page/task_watch_sections/task_watch_sections_tab_bar/task_watch_sections_tabs_list.dart';
 
 class TaskWatchBlock extends StatefulWidget {
   final String nodeId;
   final String docName;
-  final String deadLineDay;
-  final String deadLineMonth;
-  const TaskWatchBlock({super.key, required this.nodeId, required this.docName, required this.deadLineDay, required this.deadLineMonth,});
+  const TaskWatchBlock({super.key, required this.nodeId, required this.docName});
   @override
   State<TaskWatchBlock> createState() => _TaskWatchBlockState();
 }
@@ -48,7 +46,7 @@ class _TaskWatchBlockState extends State<TaskWatchBlock> with TickerProviderStat
           child:
           Column(
             children: [ 
-              DeadLineSection(deadLineDay: widget.deadLineDay, deadLineMonth: widget.deadLineMonth,),
+              const DeadLineSection(),
               TaskWatchSectionTabBar(tabController: _tabController,),
             ]
           )

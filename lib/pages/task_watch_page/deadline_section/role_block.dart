@@ -26,13 +26,11 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
       value: dropdownValue,
       icon: const Icon(Icons.arrow_downward),
       elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
+      underline: Container(height: 0),
+      style: const TextStyle(
+        color: Color.fromARGB(255, 51, 51, 51)
       ),
       onChanged: (String? value) {
-        // This is called when the user selects an item.
         setState(() {
           dropdownValue = value!;
         });
@@ -40,7 +38,21 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
       items: dropdownList.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
-          child: Text(value),
+          child: Container(
+            padding: const EdgeInsets.all(5), 
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(
+                Radius.circular(10)
+              )
+            ), 
+            child: FittedBox(
+              child: Text(
+                value,
+                textAlign: TextAlign.center,
+              )
+            )
+          ),
         );
       }).toList(),
     );

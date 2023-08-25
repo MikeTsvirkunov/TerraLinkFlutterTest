@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/pdf_screen.dart';
+import 'package:flutter_application_terra_link_test/pages/task_watch_page/pdf_screen.dart';
 import 'package:path_provider/path_provider.dart';
 
 class FileDisplay extends StatefulWidget {

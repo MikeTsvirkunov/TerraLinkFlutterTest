@@ -5,7 +5,7 @@ import 'package:flutter_application_terra_link_test/containers/global_const.dart
 
 TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
 
-  final time = DateTime.parse(taskDescription['date_ready']);
+  final deadLineDate = DateTime.parse(taskDescription['date_ready']);
   int r, g, b, a;
   String paramsList = '';
   if (taskDescription['priority'] > 50){
@@ -37,9 +37,7 @@ TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
     ],
     taskDescription['name'], 
     taskDescription['document'], 
-    time.day.toString(), 
-    containerExtractiorFunction<Map<int, String>>(
-              constConatiner, 'monthNumNameMap')[time.month].toString(), 
+    deadLineDate,  
     taskDescription['title'].toString(), 
     r, 
     g, 

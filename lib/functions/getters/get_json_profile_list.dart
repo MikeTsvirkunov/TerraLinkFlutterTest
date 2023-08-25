@@ -1,7 +1,7 @@
 import 'dart:convert' as convert;
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
-import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
 import 'package:flutter_application_terra_link_test/containers/global_const.dart';
+import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
 
 Future<Map<String, dynamic>> getJsonProfileMap() async {
   var getKeyAuth = containerExtractiorFunction<Function>(funConatiner, 'getKeyAuth');

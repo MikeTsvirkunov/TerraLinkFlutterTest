@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/task_watch_sections/task_watch_sections_tab_bar/task_watch_sections_tabs_list.dart';
+import 'package:flutter_application_terra_link_test/pages/task_watch_page/task_watch_sections/task_watch_sections_tab_bar/task_watch_sections_tabs_list.dart';
 
 class TaskWatchSectionTabBar extends StatefulWidget {
   final TabController tabController;

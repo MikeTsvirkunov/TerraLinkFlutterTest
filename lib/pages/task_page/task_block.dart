@@ -1,21 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/task_watch_page.dart';
+import 'package:flutter_application_terra_link_test/container_extender_function.dart';
+import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
+import 'package:flutter_application_terra_link_test/containers/global_const.dart';
+import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
+import 'package:flutter_application_terra_link_test/pages/task_watch_page/task_watch_page.dart';
 // import 'package:flutter_application_terra_link_test/global.dart';
 
 class TaskBlock extends StatefulWidget {
   final List<Widget> paramsList;
   final String typeOfTask;
   final String docName;
-  final String day;
-  final String month;
+  final DateTime deadLineDate;
   final String description;
   final String nodeId;
   final int red;
   final int green;
   final int blue;
   final int alpha;
-  const TaskBlock(this.nodeId, this.paramsList, this.typeOfTask, this.docName, this.day, this.month, this.description, this.red, this.green, this.blue, this.alpha, {super.key});
+  const TaskBlock(this.nodeId, this.paramsList, this.typeOfTask, this.docName, this.deadLineDate, this.description, this.red, this.green, this.blue, this.alpha, {super.key});
   @override
   State<TaskBlock> createState() => _BlockTaskState();
 }
@@ -25,9 +28,13 @@ class _BlockTaskState extends State<TaskBlock> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
+        containerExtenderFunction(varContainer, 'dateOfRegistrationOfWatchingTask', widget.deadLineDate.toString());
+        containerExtenderFunction(varContainer, 'dateOfCreationOfWatchingTask', widget.deadLineDate.toString());
+        containerExtenderFunction(varContainer, 'deadLineDateOfWatchingTask', widget.deadLineDate);
+        containerExtenderFunction(varContainer, 'nodeIdOfWatchingTask', widget.nodeId);
         Navigator.push(
             context,
-            CupertinoPageRoute(builder: (context) => TaskWatchPage(widget.nodeId, widget.docName, deadLineDay: widget.day, deadLineMonth: widget.month,))
+            CupertinoPageRoute(builder: (context) => TaskWatchPage(widget.nodeId, widget.docName, deadLineDate: widget.deadLineDate))
         );
         
       },
@@ -79,7 +86,7 @@ class _BlockTaskState extends State<TaskBlock> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(widget.day,
+                    Text(widget.deadLineDate.day.toString(),
                       style: TextStyle(
                         fontWeight: FontWeight.bold, 
                         fontSize: 24, 
@@ -87,7 +94,7 @@ class _BlockTaskState extends State<TaskBlock> {
                         color: Color.fromARGB(255, widget.red, widget.green, widget.blue))
                     ),
                     Text(
-                      widget.month,
+                      containerExtractiorFunction<Map<int, String>>(constConatiner, 'monthNumNameMap')[widget.deadLineDate].toString(),
                       style: TextStyle(
                         fontSize: 16,
                         height: 0,
