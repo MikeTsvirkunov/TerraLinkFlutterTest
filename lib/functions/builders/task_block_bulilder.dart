@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_terra_link_test/pages/task_page/task_block.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
-import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
+import 'package:flutter_application_terra_link_test/containers/global_const.dart';
 
 TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
 
@@ -19,7 +19,8 @@ TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
     b = 0;
     a = 0;
   }
-  Map<String, String> paramsKeysValues = containerExtractiorFunction<Map<String, String>>(varConatiner, 'taskBlockExtraParamsMap');
+  Map<String, String> paramsKeysValues = containerExtractiorFunction<Map<String, String>>(
+          constConatiner, 'taskBlockExtraParamsMap');
   for (var element in paramsKeysValues.keys) {
     if (taskDescription[element] != null) {
         paramsList = paramsList.isNotEmpty ? '$paramsList\n' : paramsList;
@@ -37,7 +38,8 @@ TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
     taskDescription['name'], 
     taskDescription['document'], 
     time.day.toString(), 
-    containerExtractiorFunction<Map<int, String>>(varConatiner, 'monthNumNameMap')[time.month].toString(), 
+    containerExtractiorFunction<Map<int, String>>(
+              constConatiner, 'monthNumNameMap')[time.month].toString(), 
     taskDescription['title'].toString(), 
     r, 
     g, 

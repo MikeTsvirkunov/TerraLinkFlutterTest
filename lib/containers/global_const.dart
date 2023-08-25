@@ -1,4 +1,4 @@
-final varConatiner = <String, Object>{
+final constConatiner = <String, Object>{
   'AuthLink': 'http://ot-lo-be-dev1.ot.dev.local/otcs/llisapi.dll/api/v1/auth',
   'TaskLink': 'http://ot-lo-be-dev1.ot.dev.local/otcs/llisapi.dll/api/v2/dmwf/assignmentslist',
   'AcountPass': 'assets/passwords.json', 
@@ -33,6 +33,20 @@ final varConatiner = <String, Object>{
     10: "ОКТЯБРЯ",
     11: "НОЯБРЯ",
     12: "ДЕКАБРЯ"
+  },
+  'monthShortNameForFullNameMap': {
+    "ЯНВ": "ЯНВАРЯ",
+    "ФЕВ": "ФЕВРАЛЯ",
+    "МАРТ": "МАРТА",
+    "АПР": "АПРЕЛЯ",
+    "МАЙ": "МАЯ",
+    "ИЮНЬ": "ИЮНЯ",
+    "ИЮЛЬ": "ИЮЛЯ",
+    "АВГ": "АВГУСТА",
+    "СЕНТ": "СЕНТЯБРЯ",
+    "ОКТ": "ОКТЯБРЯ",
+    "НОЯБ": "НОЯБРЯ",
+    "ДЕК": "ДЕКАБРЯ"
   },
   'taskWatchRoleList': <String>['Исполнители', 'Xnj-nj', 'Xnj-nj2'],
 };

@@ -8,7 +8,9 @@ import 'package:flutter_application_terra_link_test/pages/task_watch_page.dart/t
 class TaskWatchBlock extends StatefulWidget {
   final String nodeId;
   final String docName;
-  const TaskWatchBlock({super.key, required this.nodeId, required this.docName,});
+  final String deadLineDay;
+  final String deadLineMonth;
+  const TaskWatchBlock({super.key, required this.nodeId, required this.docName, required this.deadLineDay, required this.deadLineMonth,});
   @override
   State<TaskWatchBlock> createState() => _TaskWatchBlockState();
 }
@@ -46,7 +48,7 @@ class _TaskWatchBlockState extends State<TaskWatchBlock> with TickerProviderStat
           child:
           Column(
             children: [ 
-              DeadLineSection(deadLineDate: DateTime(2017, 9, 7, 17, 30)),
+              DeadLineSection(deadLineDay: widget.deadLineDay, deadLineMonth: widget.deadLineMonth,),
               TaskWatchSectionTabBar(tabController: _tabController,),
             ]
           )

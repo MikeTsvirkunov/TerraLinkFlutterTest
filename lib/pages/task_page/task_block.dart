@@ -27,7 +27,7 @@ class _BlockTaskState extends State<TaskBlock> {
       onTap: (){
         Navigator.push(
             context,
-            CupertinoPageRoute(builder: (context) => TaskWatchPage(widget.nodeId, widget.docName,))
+            CupertinoPageRoute(builder: (context) => TaskWatchPage(widget.nodeId, widget.docName, deadLineDay: widget.day, deadLineMonth: widget.month,))
         );
         
       },

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
-import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
+import 'package:flutter_application_terra_link_test/containers/global_const.dart';
 
 class DeadLineDate extends StatefulWidget {
-  final DateTime deadLineDate;
+  final String deadLineDay;
+  final String deadLineMonth;
   const DeadLineDate({
     super.key,
-    required this.deadLineDate,
+    required this.deadLineDay, 
+    required this.deadLineMonth,
   });
   @override
   State<DeadLineDate> createState() => _DeadLineDatePageState();
@@ -40,7 +42,7 @@ class _DeadLineDatePageState extends State<DeadLineDate> {
             ),
           ),
           Text(
-            '${widget.deadLineDate.day} ${containerExtractiorFunction<Map<int, String>>(varConatiner, 'monthNumNameMapForFull')[widget.deadLineDate.month]!.toLowerCase()}',
+            '${widget.deadLineDay} ${containerExtractiorFunction<Map<int, String>>(constConatiner, 'monthNumNameMapForFull')[widget.deadLineMonth]!.toLowerCase()}',
             style: const TextStyle(
               color: Colors.black,
               fontSize: 20,

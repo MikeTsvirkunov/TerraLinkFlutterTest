@@ -23,7 +23,7 @@ class _BTNState extends State<BTN> {
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 0.1,
             blurRadius: 7,
-            offset: const Offset(0, 10), // changes position of shadow
+            offset: const Offset(0, 10), // changes position of shadoww  
           ),
         ],
       ),
@@ -31,7 +31,7 @@ class _BTNState extends State<BTN> {
         onPressed: () => {
             Navigator.push(
             context,
-            CupertinoPageRoute(builder: (context) => TaskWatchPage('45036380', widget.text))
+            CupertinoPageRoute(builder: (context) => TaskWatchPage('45036380', widget.text, deadLineDay: '1', deadLineMonth: '1',))
         )
         },
         style: const ButtonStyle(
