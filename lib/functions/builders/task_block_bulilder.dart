@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_application_terra_link_test/container_extender_function.dart';
+import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
 import 'package:flutter_application_terra_link_test/pages/task_page/task_block.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
 import 'package:flutter_application_terra_link_test/containers/global_const.dart';
+import 'package:flutter_application_terra_link_test/pages/task_watch_page/task_watch_page.dart';
 
 TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
 
@@ -18,6 +21,19 @@ TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
     g = 0;
     b = 0;
     a = 0;
+  }
+  void taskWatchPageFunction() {
+    containerExtenderFunction(varContainer, 'workflowIdOfWatchingTask', taskDescription['workflow_id']);
+    containerExtenderFunction(varContainer, 'dateOfRegistrationOfWatchingTask', deadLineDate);
+    containerExtenderFunction(varContainer, 'dateOfCreationOfWatchingTask', deadLineDate);
+    containerExtenderFunction(varContainer, 'deadLineDateOfWatchingTask', deadLineDate);
+    containerExtenderFunction(varContainer, 'titleOfWatchingTask', taskDescription['title']);
+    containerExtenderFunction(varContainer, 'textOfOfWatchingTask', taskDescription['name']);
+    containerExtenderFunction(varContainer, 'nodeIdOfWatchingTask', taskDescription['document_id']);
+    Navigator.push(
+        containerExtractiorFunction<BuildContext>(varContainer, 'currentContext'),
+        CupertinoPageRoute(builder: (context) => TaskWatchPage(taskDescription['document_id'].toString(), taskDescription['document'].toString(), deadLineDate: deadLineDate))
+    );
   }
   Map<String, String> paramsKeysValues = containerExtractiorFunction<Map<String, String>>(
           constConatiner, 'taskBlockExtraParamsMap');
@@ -42,6 +58,7 @@ TaskBlock taskBlockBuilder(Map<String, dynamic> taskDescription){
     r, 
     g, 
     b,
-    a
+    a,
+     toWatchingTask: taskWatchPageFunction,
   );
 }

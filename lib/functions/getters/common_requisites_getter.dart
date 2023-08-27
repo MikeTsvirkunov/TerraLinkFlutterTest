@@ -1,4 +1,4 @@
-import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
 import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
 import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
@@ -9,7 +9,7 @@ Future<Map<String, dynamic>> commonRequisitesOfWatchingTaskGetter() async {
     acc['username'],
     acc['password'],
   );
-  var wfId = await containerExtractiorFunction(varContainer, 'wfIdOfWatchingTask');
-  http.Response res = await containerExtractiorFunction<Function>(funConatiner, 'getDataAboutRouteTask')(wfId, ticket);
-  return res.body as Map<String, dynamic>;
+  var wfId = await containerExtractiorFunction(varContainer, 'workflowIdOfWatchingTask');
+  var res = await containerExtractiorFunction<Function>(funConatiner, 'getDataAboutRouteOFWatchingTask')(wfId.toString(), ticket);
+  return res;
 }

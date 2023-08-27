@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_terra_link_test/pages/docs_page/docs_block.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
@@ -19,8 +20,7 @@ DocsBlock docsBlockBuilder(Map<String, dynamic> taskDescription){
     b = 0;
     a = 0;
   }
-  Map<String, String> paramsKeysValues = containerExtractiorFunction<Map<String, String>>(
-          constConatiner, 'taskBlockExtraParamsMap');
+  Map<String, String> paramsKeysValues = containerExtractiorFunction<Map<String, String>>(constConatiner, 'taskBlockExtraParamsMap');
   for (var element in paramsKeysValues.keys) {
     if (taskDescription[element] != null) {
         paramsList = paramsList.isNotEmpty ? '$paramsList\n' : paramsList;
@@ -37,8 +37,7 @@ DocsBlock docsBlockBuilder(Map<String, dynamic> taskDescription){
     taskDescription['name'], 
     taskDescription['document'], 
     time.day.toString(), 
-    containerExtractiorFunction<Map<int, String>>(
-              constConatiner, 'monthNumNameMap')[time.month].toString(), 
+    containerExtractiorFunction<Map<int, String>>(constConatiner, 'monthNumNameMap')[time.month].toString(), 
     taskDescription['title'].toString(), 
     r, 
     g, 

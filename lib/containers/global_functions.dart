@@ -12,12 +12,12 @@ import 'package:flutter_application_terra_link_test/functions/getters/get_file.d
 import 'package:flutter_application_terra_link_test/functions/getters/get_json_profile_list.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/get_json_orders_list.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/get_json_tasks_list.dart';
-import 'package:flutter_application_terra_link_test/functions/getters/requisites_page_params_getter.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/task_watch_section_pages_getter.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/task_watch_sections_pages_list_get.dart';
 import 'package:flutter_application_terra_link_test/functions/processors/success_auth_request_future_builder_processor.dart';
 import 'package:flutter_application_terra_link_test/functions/processors/success_docs_request_future_builder_processor.dart';
 import 'package:flutter_application_terra_link_test/functions/processors/success_tasks_request_future_builder_processor.dart';
+import 'package:flutter_application_terra_link_test/functions/requests/get_data_about_route_tasks.dart';
 import 'package:flutter_application_terra_link_test/functions/requests/get_info_rk_atributes.dart';
 import 'package:flutter_application_terra_link_test/functions/requests/order_list_get_function.dart';
 import 'package:flutter_application_terra_link_test/functions/requests/profile_get_function.dart';
@@ -62,4 +62,5 @@ final funConatiner = <String, Function>{
   'taskWatchSectionPagesGetter':  taskWatchSectionPagesGetter,
   'commonRequisitesOfWatchingTaskGetter': commonRequisitesOfWatchingTaskGetter,
   'commonRequisitesOfWatchingTaskPageBuilder': commonRequisitesOfWatchingTaskPageBuilder,
+  'getDataAboutRouteOFWatchingTask': getDataAboutRouteTask
 };

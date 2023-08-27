@@ -1,10 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_terra_link_test/container_extender_function.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
 import 'package:flutter_application_terra_link_test/containers/global_const.dart';
-import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
-import 'package:flutter_application_terra_link_test/pages/task_watch_page/task_watch_page.dart';
 // import 'package:flutter_application_terra_link_test/global.dart';
 
 class TaskBlock extends StatefulWidget {
@@ -18,7 +14,8 @@ class TaskBlock extends StatefulWidget {
   final int green;
   final int blue;
   final int alpha;
-  const TaskBlock(this.nodeId, this.paramsList, this.typeOfTask, this.docName, this.deadLineDate, this.description, this.red, this.green, this.blue, this.alpha, {super.key});
+  final Function toWatchingTask;
+  const TaskBlock(this.nodeId, this.paramsList, this.typeOfTask, this.docName, this.deadLineDate, this.description, this.red, this.green, this.blue, this.alpha, {super.key, required this.toWatchingTask});
   @override
   State<TaskBlock> createState() => _BlockTaskState();
 }
@@ -27,17 +24,7 @@ class _BlockTaskState extends State<TaskBlock> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        containerExtenderFunction(varContainer, 'dateOfRegistrationOfWatchingTask', widget.deadLineDate.toString());
-        containerExtenderFunction(varContainer, 'dateOfCreationOfWatchingTask', widget.deadLineDate.toString());
-        containerExtenderFunction(varContainer, 'deadLineDateOfWatchingTask', widget.deadLineDate);
-        containerExtenderFunction(varContainer, 'nodeIdOfWatchingTask', widget.nodeId);
-        Navigator.push(
-            context,
-            CupertinoPageRoute(builder: (context) => TaskWatchPage(widget.nodeId, widget.docName, deadLineDate: widget.deadLineDate))
-        );
-        
-      },
+      onTap: (){widget.toWatchingTask();},
       child: Container(
         padding: const EdgeInsets.all(12),
         width: double.maxFinite,

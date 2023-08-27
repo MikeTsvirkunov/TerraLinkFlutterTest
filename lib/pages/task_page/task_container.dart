@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_terra_link_test/container_extender_function.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
 import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
+import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
 
 class TaskContainer extends StatefulWidget {
   final ScrollController contr;
@@ -34,6 +36,7 @@ class _TaskContainerState extends State<TaskContainer> {
         child: FutureBuilder(
           future: _dataFuture, 
           builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+            containerExtenderFunction(varContainer, 'currentContext', context);
             return containerExtractiorFunction<Function>(
               funConatiner, 
               'futureBuilderChecker'

@@ -20,6 +20,7 @@ class _CommonRequisitesBlockState extends State<CommonRequisitesBlock> {
       width: double.maxFinite,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(widget.name),
           widget.value != null ? Text(widget.value!): const Text('Не указан'),
