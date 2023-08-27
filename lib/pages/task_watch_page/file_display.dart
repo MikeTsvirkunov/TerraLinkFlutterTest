@@ -2,7 +2,10 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_terra_link_test/pages/task_watch_page/pdf_screen.dart';
+import 'package:flutter_application_terra_link_test/container_extender_function.dart';
+import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
+import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
+import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
 import 'package:path_provider/path_provider.dart';
 
 class FileDisplay extends StatefulWidget {
@@ -16,14 +19,19 @@ class FileDisplay extends StatefulWidget {
 
 class _FileDisplayState extends State<FileDisplay> {
   late Future<String> remotePDFpath;
+  late Future<List<String>> filePathes;
 
   @override
   void initState() {
     super.initState();
     remotePDFpath = createFileOfPdfUrl();
+    containerExtenderFunction(varContainer, 'nodeIdOfWatchingTask', widget.nodeId);
+    filePathes = containerExtractiorFunction(funConatiner, 'getFilesListOfWatchingTask')();
   }
 
   Future<String> createFileOfPdfUrl() async {
+    containerExtenderFunction(varContainer, 'nodeIdOfWatchingTask', widget.nodeId);
+    var z = await containerExtractiorFunction(funConatiner, 'getFilesListOfWatchingTask')();
     Completer<File> completer = Completer();
     if (kDebugMode) {
       print("Start download file from internet!");
@@ -49,9 +57,9 @@ class _FileDisplayState extends State<FileDisplay> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: remotePDFpath, 
-      builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-        if (snapshot.hasData) return PDFScreen(path: snapshot.data);
+      future: filePathes, 
+      builder: (BuildContext context, AsyncSnapshot<List<String>> snapshot) {
+        if (snapshot.hasData) return containerExtractiorFunction(funConatiner, 'fileDisplayBuilder')(snapshot.data);
         return const Center(
           child: Text(
             'File loading to display', 
