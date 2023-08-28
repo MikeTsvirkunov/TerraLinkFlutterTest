@@ -1,8 +1,10 @@
+import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_terra_link_test/pages/task_watch_page/pdf_screen.dart';
-import 'package:open_file/open_file.dart';
+import 'package:open_file_plus/open_file_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -41,7 +43,7 @@ class _MyAppState extends State<MyApp> {
   var _openResult = 'Unknown';
 
   Future<void> openFile() async {
-    _openAppPrivateFile();
+    _openExternalFile();
   }
 
   _openAppPrivateFile() async {
@@ -56,6 +58,13 @@ class _MyAppState extends State<MyApp> {
   _openExternalFile() async {
     //open an external storage file
     if (await Permission.manageExternalStorage.request().isGranted) {
+      var x = File(widget.filePath);
+      if (kDebugMode) {
+        var z = await x.exists();
+        var z2 = await x.length();
+        
+        print("$z, $z2");
+      }
       final result = await OpenFile.open(widget.filePath);
       setState(() {
         _openResult = "type=${result.type}  message=${result.message}";

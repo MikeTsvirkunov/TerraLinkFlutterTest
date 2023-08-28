@@ -15,13 +15,14 @@ Future<List<String>> getFilesListOfWatchingTask() async {
   String ticket = await containerExtractiorFunction<Function>(funConatiner, 'getKeyAuth')(acc['username'],acc['password'],);
   String nodeId = containerExtractiorFunction(varContainer, 'nodeIdOfWatchingTask').toString();
   String preListOfRKAttachments = await containerExtractiorFunction<Function>(funConatiner, 'getListOfRKAttachments')(nodeId, ticket,);
+  var z = (convert.jsonDecode(preListOfRKAttachments )as Map<String, dynamic>);
   List<dynamic> listOfRKAttachments = (convert.jsonDecode(preListOfRKAttachments )as Map<String, dynamic>)["results"];
-  var dir = await getApplicationDocumentsDirectory();
+  var dir = await getExternalStorageDirectory();
   List<String> filesPathes = [];
   for (var element in listOfRKAttachments) {
     http.Response doc = await containerExtractiorFunction<Function>(funConatiner, 'getDocContent')(element['id'].toString(), ticket);
     String fileName = doc.headers['content-disposition']!.split('filename=').last.replaceAll('"', '');
-    var file = File("${dir.path}/$fileName");
+    var file = File("${dir!.path}/$fileName");
     await file.writeAsBytes(doc.bodyBytes, flush: true);
     filesPathes.add(file.path);
   }
