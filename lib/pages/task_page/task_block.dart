@@ -81,7 +81,7 @@ class _BlockTaskState extends State<TaskBlock> {
                         color: Color.fromARGB(255, widget.red, widget.green, widget.blue))
                     ),
                     Text(
-                      containerExtractiorFunction<Map<int, String>>(constConatiner, 'monthNumNameMap')[widget.deadLineDate].toString(),
+                      containerExtractiorFunction<Map<int, String>>(constConatiner, 'monthNumNameMap')[widget.deadLineDate.month].toString(),
                       style: TextStyle(
                         fontSize: 16,
                         height: 0,

@@ -15,7 +15,6 @@ Future<List<String>> getFilesListOfWatchingTask() async {
   String ticket = await containerExtractiorFunction<Function>(funConatiner, 'getKeyAuth')(acc['username'],acc['password'],);
   String nodeId = containerExtractiorFunction(varContainer, 'nodeIdOfWatchingTask').toString();
   String preListOfRKAttachments = await containerExtractiorFunction<Function>(funConatiner, 'getListOfRKAttachments')(nodeId, ticket,);
-  var z = (convert.jsonDecode(preListOfRKAttachments )as Map<String, dynamic>);
   List<dynamic> listOfRKAttachments = (convert.jsonDecode(preListOfRKAttachments )as Map<String, dynamic>)["results"];
   var dir = await getExternalStorageDirectory();
   List<String> filesPathes = [];
@@ -28,9 +27,6 @@ Future<List<String>> getFilesListOfWatchingTask() async {
   }
 
   Completer<File> completer = Completer();
-  if (kDebugMode) {
-    print("Start download file from internet!");
-  }
   try {
     const url = "https://pdfkit.org/docs/guide.pdf";
     final filename = url.substring(url.lastIndexOf("/"));

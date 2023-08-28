@@ -5,8 +5,10 @@ import 'package:flutter_application_terra_link_test/containers/global_functions.
 import 'package:flutter_application_terra_link_test/pages/task_watch_page/pdf_screen.dart';
 
 class FileDisplay extends StatefulWidget {
+  const FileDisplay({super.key});
+
   @override
-  _FileDisplayState createState() => _FileDisplayState();
+  State<FileDisplay> createState() => _FileDisplayState();
 }
 
 class _FileDisplayState extends State<FileDisplay> {

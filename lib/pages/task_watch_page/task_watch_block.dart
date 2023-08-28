@@ -54,6 +54,7 @@ class _TaskWatchBlockState extends State<TaskWatchBlock> with TickerProviderStat
       ),
       body: TabBarView(
         controller: _tabController,
+        physics: const NeverScrollableScrollPhysics(),
         children: containerExtractiorFunction(funConatiner, 'taskWatchSectionPagesGetter')(widget.nodeId),
       ),
     );

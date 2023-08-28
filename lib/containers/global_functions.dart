@@ -58,7 +58,6 @@ final funConatiner = <String, Function>{
   'requisitesPageBuilder': requisitesPageBuilder,
   'taskWatchSectionsPagessListGetter': taskWatchSectionsPagessListGetter,
   'requisitesPageParamsGetter': commonRequisitesOfWatchingTaskGetter,
-  'getLookupsCount': () {return 0;},
   'getInfoRKAtributes': getInfoRKAtributes,
   'commonRequisites': getInfoRKAtributes,
   'getFile': getFilesListOfWatchingTask,

@@ -31,7 +31,7 @@ class _TaskWatchPageState extends State<TaskWatchPage> {
         padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         width: double.maxFinite,
         child: TaskWatchBlock(nodeId: widget.nodeId, docName: widget.docName)
-        )
+      )
     );
   }
 }
