@@ -51,9 +51,16 @@ class _TaskCounterBlockState extends State<TaskCounterBlock> {
             )
           ),
           const Spacer(flex: 2,),
-          Text(
-            widget.name,
-            textScaler: const TextScaler.linear(1.2),
+          // FittedBox(
+            // child: 
+            Text(
+              widget.name,
+              textAlign: TextAlign.left,
+              maxLines: 1,
+              softWrap: false,
+              // textScaler: const TextScaler.linear(1.2),
+              overflow: TextOverflow.fade,
+            // )
           )
         ]
       ),

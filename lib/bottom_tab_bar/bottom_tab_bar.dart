@@ -29,11 +29,13 @@ class _BottomTabBarState extends State<BottomTabBar>
   Widget build(BuildContext context) {
     return Scaffold(
       body: TabBarView(
+        clipBehavior: Clip.hardEdge,
         controller: _tabController,
         children: pageList,
       ),
       bottomNavigationBar: TabBar(
         tabAlignment: TabAlignment.fill,
+        padding: const EdgeInsets.symmetric(horizontal: 0),
         // isScrollable: true,
         indicator: ShapeDecoration(
             // color: Colors.white,

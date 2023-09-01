@@ -97,8 +97,8 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
               padding: const EdgeInsets.all(0), 
               width: double.maxFinite,
               child: Container(
-                width: 25+(currentPage!.toString().length.toDouble() + pages!.toString().length.toDouble())*10,
                 height: 40,
+                width: 50,
                 transformAlignment: AlignmentDirectional.center,
                 padding: EdgeInsetsDirectional.all(10),
                 decoration: const BoxDecoration(
@@ -106,7 +106,8 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
                   color: Color.fromARGB(255, 51, 51, 51),
                 ),
                 alignment: AlignmentDirectional.center,
-                child: Text(
+                child: FittedBox( 
+                  child: Text(
                   '$currentPage/$pages',
                   maxLines: 1,
                   style: const TextStyle(
@@ -114,7 +115,7 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
                     fontSize: 15,
                     overflow: TextOverflow.clip,
                   ),
-                ),
+                )),
               )
             );
           }

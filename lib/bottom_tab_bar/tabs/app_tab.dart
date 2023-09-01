@@ -15,21 +15,28 @@ class _MainAppTabtate extends State<MainAppTab> {
   Widget build(BuildContext context) {
     return Container(
       alignment: AlignmentDirectional.center,
+
       padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+      margin: EdgeInsets.all(0),
       height: 70,
       width: widget.widthTab,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ImageIcon(AssetImage(widget.img)),
-          Text(
-            widget.text,
-            maxLines: 1,
-            textWidthBasis: TextWidthBasis.parent,
-            style: const TextStyle(
-              fontSize: 10, 
-              overflow: TextOverflow.visible
-            ),
+          FittedBox(
+            clipBehavior: Clip.hardEdge,
+            fit: BoxFit.fitWidth,
+            child: 
+            Text(
+              widget.text,
+              maxLines: 1,
+              textWidthBasis: TextWidthBasis.parent,
+              style: const TextStyle(
+                fontSize: 10, 
+                overflow: TextOverflow.visible
+              ),
+            )
           )
         ]
       ),

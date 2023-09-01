@@ -14,8 +14,8 @@ Future<List<String>> getFilesListOfWatchingTask() async {
   var acc = await containerExtractiorFunction<Function>(funConatiner, 'getPass')();
   String ticket = await containerExtractiorFunction<Function>(funConatiner, 'getKeyAuth')(acc['username'],acc['password'],);
   String nodeId = containerExtractiorFunction(varContainer, 'nodeIdOfWatchingTask').toString();
-  String preListOfRKAttachments = await containerExtractiorFunction<Function>(funConatiner, 'getListOfRKAttachments')(nodeId, ticket,);
-  List<dynamic> listOfRKAttachments = (convert.jsonDecode(preListOfRKAttachments )as Map<String, dynamic>)["results"];
+  http.Response preListOfRKAttachments = await containerExtractiorFunction<Function>(funConatiner, 'getListOfRKAttachments')(nodeId, ticket,);
+  List<dynamic> listOfRKAttachments = (convert.jsonDecode(preListOfRKAttachments.body)as Map<String, dynamic>)["results"];
   var dir = await getExternalStorageDirectory();
   List<String> filesPathes = [];
   for (var element in listOfRKAttachments) {

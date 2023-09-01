@@ -15,6 +15,7 @@ class _TaskPageHeaderState extends State<TaskPageHeader> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 90,
       width: double.maxFinite,
       color: Colors.white,
       padding: const EdgeInsets.all(0),

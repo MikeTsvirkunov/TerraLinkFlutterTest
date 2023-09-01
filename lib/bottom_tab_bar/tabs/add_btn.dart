@@ -31,7 +31,6 @@ class _AppBtnState extends State<AddBtn> {
           '+',
           maxLines: 1,
           style: TextStyle(
-            
             fontSize: 25,
             height: 0,
           ),

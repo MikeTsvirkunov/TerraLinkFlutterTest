@@ -16,14 +16,43 @@ class _CommonRequisitesBlockState extends State<CommonRequisitesBlock> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      margin: const EdgeInsetsDirectional.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      decoration: const BoxDecoration(
+        border: Border(
+            bottom: BorderSide(
+              width: 1,
+              color: Color.fromARGB(255, 238, 240, 244),
+            )
+          )
+        ),
       width: double.maxFinite,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(widget.name),
-          widget.value != null ? Text(widget.value!): const Text('Не указан'),
+          Text(
+            widget.name, 
+            style: const TextStyle(
+              fontSize: 12,
+              color: Color.fromARGB(255, 128, 130, 133)
+            ),
+          ),
+          const SizedBox(height: 5),
+          widget.value != null ? 
+          Text(
+            widget.value!,
+            style: const TextStyle(fontSize: 16),
+          ): 
+          const Text(
+            'Не указан', 
+            style: TextStyle(
+              color: Color.fromARGB(255, 161, 163, 166),
+              fontSize: 16
+            ),
+          ),
         ],
       ),
     );

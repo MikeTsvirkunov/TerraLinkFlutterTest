@@ -25,13 +25,10 @@ class _MyAppState extends State<UnresolveFileFormatScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
         body: Center(
           child: TextButton(
             onPressed: openFile,
-            child: const Text('Tap to open file'),
+            child: Text('Tap to open file ${widget.filePath.split("/").last}'),
           ),
         ),
       ),

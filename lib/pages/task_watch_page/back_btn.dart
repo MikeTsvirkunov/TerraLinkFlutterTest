@@ -11,13 +11,14 @@ class _BackBtnState extends State<BackBtn> {
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
+      color: Colors.white,
       alignment: AlignmentDirectional.centerStart,
       padding: const EdgeInsets.all(0),
       onPressed: () {
         Navigator.pop(context);
       }, 
       child: const SizedBox(
-        height: 100,
+        height: 150,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [

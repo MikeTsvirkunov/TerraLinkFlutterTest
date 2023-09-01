@@ -33,6 +33,7 @@ class _ChangingAppBarState extends State<ColapseableAppBar> {
         surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
         toolbarHeight: 98,
+        leadingWidth: double.maxFinite,
         title: TaskPageHeader('Задачи', _scrollPosition)
       ),
       body: TaskContainer(_scrollController),
