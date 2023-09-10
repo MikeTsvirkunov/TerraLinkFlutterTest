@@ -1,6 +1,8 @@
 import 'package:flutter_application_terra_link_test/functions/builders/common_requisites_of_watching_task_page_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/file_display_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/multiple_file_display_builder.dart';
+import 'package:flutter_application_terra_link_test/functions/builders/order_block_of_watching_task_builder.dart';
+import 'package:flutter_application_terra_link_test/functions/builders/orders_of_watching_task_page_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/profile_block_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/related_doc_block_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/related_docs_of_watching_task_builder.dart';
@@ -9,6 +11,7 @@ import 'package:flutter_application_terra_link_test/functions/builders/single_fi
 import 'package:flutter_application_terra_link_test/functions/builders/task_block_bulilder.dart';
 import 'package:flutter_application_terra_link_test/functions/builders/task_counter_block_builder.dart';
 import 'package:flutter_application_terra_link_test/functions/checkers/future_builder_checker.dart';
+import 'package:flutter_application_terra_link_test/functions/converters/converter_date_time_to_stringIn_orders_of_watching_task.dart';
 import 'package:flutter_application_terra_link_test/functions/generators/generate_docs_block_list.dart';
 import 'package:flutter_application_terra_link_test/functions/generators/generate_task_block_list.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/common_requisites_getter.dart';
@@ -17,9 +20,12 @@ import 'package:flutter_application_terra_link_test/functions/getters/get_image_
 import 'package:flutter_application_terra_link_test/functions/getters/get_json_profile_list.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/get_json_orders_list.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/get_json_tasks_list.dart';
+import 'package:flutter_application_terra_link_test/functions/getters/orders_of_watching_task_getter.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/related_docs_getter.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/task_watch_section_pages_getter.dart';
 import 'package:flutter_application_terra_link_test/functions/getters/task_watch_sections_pages_list_get.dart';
+import 'package:flutter_application_terra_link_test/functions/processors/get_related_documents_respones_data_processor.dart';
+import 'package:flutter_application_terra_link_test/functions/processors/route_data_associated_with_document_data_preprocessor.dart';
 import 'package:flutter_application_terra_link_test/functions/processors/success_auth_request_future_builder_processor.dart';
 import 'package:flutter_application_terra_link_test/functions/processors/success_docs_request_future_builder_processor.dart';
 import 'package:flutter_application_terra_link_test/functions/processors/success_tasks_request_future_builder_processor.dart';
@@ -83,4 +89,10 @@ final funConatiner = <String, Function>{
   'relatedDocsGetter': relatedDocsGetter,
   'relatedDocsOfWatchingTaskPageBuilder': relatedDocsOfWatchingTaskPageBuilder,
   'relatedDocBlockBuilder': relatedDocBlockBuilder,
+  'getRelatedDocumentsResponesDataProcessor': getRelatedDocumentsResponesDataProcessor,
+  'routeDataAssociatedWithDocumentDataPreprocessor': routeDataAssociatedWithDocumentDataPreprocessor,
+  'ordersOfWatchingTaskGetter': ordersOfWatchingTaskGetter,
+  'orderBlockOfWatchingTaskBuilder': orderBlockOfWatchingTaskBuilder,
+  'ordersOfWatchingTaskPageBuilder': ordersOfWatchingTaskPageBuilder,
+  'converterDateTimeToStringInOrdersOfWatchingTask':  converterStringDateTimeToStringInOrdersOfWatchingTask,
 };

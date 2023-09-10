@@ -24,6 +24,7 @@ class _TaskWatchPageState extends State<TaskWatchPage> {
     return CupertinoPageScaffold(
       backgroundColor: Colors.white,
       navigationBar: const CupertinoNavigationBar(
+        border: Border(),
         backgroundColor: Colors.white,
         // previousPageTitle: 'Asd',
         trailing: SizedBox(height: 0,),

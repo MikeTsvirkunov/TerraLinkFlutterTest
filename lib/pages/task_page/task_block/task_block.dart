@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
 import 'package:flutter_application_terra_link_test/containers/global_const.dart';
+import 'package:flutter_application_terra_link_test/pages/task_page/task_block/description_of_task.dart';
+import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
 // import 'package:flutter_application_terra_link_test/global.dart';
 
 class TaskBlock extends StatefulWidget {
@@ -23,7 +25,29 @@ class TaskBlock extends StatefulWidget {
 class _BlockTaskState extends State<TaskBlock> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return SwipeActionCell(
+      key: ValueKey(widget.nodeId),
+      selectedForegroundColor: Color.fromARGB(255, 255, 0, 0),
+      trailingActions:[
+        SwipeAction(
+          color: Color.fromARGB(255, 244, 244, 245),
+          content: IconButton(onPressed: () {}, icon: Image.asset('assets/images/icons/accept.png')),
+          onTap: (handler) {}
+        ),
+        SwipeAction(
+          color: Color.fromARGB(255, 244, 244, 245),
+          content: IconButton(onPressed: () {}, icon: Image.asset('assets/images/icons/cancel.png')),
+          onTap: (handler) {}
+        ),
+        SwipeAction(
+          color: Color.fromARGB(255, 244, 244, 245),
+          content: IconButton(
+              onPressed: () {},
+              icon: Image.asset('assets/images/icons/list.png')),
+          onTap: (handler) {}
+        ),
+      ],
+      child: InkWell(
       onTap: (){widget.toWatchingTask();},
       child: Container(
         padding: const EdgeInsets.all(12),
@@ -67,7 +91,7 @@ class _BlockTaskState extends State<TaskBlock> {
                 padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
-                  color: Color.fromARGB(45, widget.red, widget.green, widget.blue)
+                  color: Color.fromARGB(widget.alpha, widget.red, widget.green, widget.blue)
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -93,18 +117,10 @@ class _BlockTaskState extends State<TaskBlock> {
               ),
             ],
           ),
-          SizedBox(
-            width: double.maxFinite,
-            child: Text(
-              widget.description,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.left,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-            )
-          ),
-        ]
+              descriptionOfTaskBlock(description: widget.description,)
+          ]
         )
       )
-    );
+    ));
   }
 }

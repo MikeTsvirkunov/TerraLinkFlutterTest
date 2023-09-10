@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_application_terra_link_test/container_extender_function.dart';
 import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
-import 'package:flutter_application_terra_link_test/pages/task_page/task_block.dart';
+import 'package:flutter_application_terra_link_test/pages/task_page/task_block/task_block.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
 import 'package:flutter_application_terra_link_test/containers/global_const.dart';
 import 'package:flutter_application_terra_link_test/pages/task_watch_page/task_watch_page.dart';

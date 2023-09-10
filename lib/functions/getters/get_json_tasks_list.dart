@@ -1,7 +1,9 @@
 import 'dart:convert' as convert;
+import 'package:flutter_application_terra_link_test/container_extender_function.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
 import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
 import 'package:flutter_application_terra_link_test/containers/global_const.dart';
+import 'package:flutter_application_terra_link_test/containers/global_vars.dart';
 
 Future<List<dynamic>> getJsonTasksList() async {
   var getKeyAuth = containerExtractiorFunction<Function>(funConatiner, 'getKeyAuth');
@@ -14,5 +16,6 @@ Future<List<dynamic>> getJsonTasksList() async {
   );
   var x2 = await getTaskList(constConatiner['TaskLink'], x);
   List<dynamic> x3 = ((convert.jsonDecode(x2) as Map<String, dynamic>)['results']['value']['assignments']);
+  containerExtenderFunction(varContainer, 'tasksList', x3);
   return x3;
 }
