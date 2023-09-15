@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
-import 'package:flutter_application_terra_link_test/containers/global_const.dart';
-import 'package:flutter_application_terra_link_test/pages/task_page/task_block/description_of_task.dart';
+import 'package:flutter_application_terra_link_test/pages/task_page/task_block/accept_button.dart';
+import 'package:flutter_application_terra_link_test/pages/task_page/task_block/label_of_task_block.dart';
+import 'package:flutter_application_terra_link_test/pages/task_page/task_block/list_button.dart';
 import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
 // import 'package:flutter_application_terra_link_test/global.dart';
 
@@ -17,110 +17,137 @@ class TaskBlock extends StatefulWidget {
   final int blue;
   final int alpha;
   final Function toWatchingTask;
-  const TaskBlock(this.nodeId, this.paramsList, this.typeOfTask, this.docName, this.deadLineDate, this.description, this.red, this.green, this.blue, this.alpha, {super.key, required this.toWatchingTask});
+  const TaskBlock(
+      this.nodeId,
+      this.paramsList,
+      this.typeOfTask,
+      this.docName,
+      this.deadLineDate,
+      this.description,
+      this.red,
+      this.green,
+      this.blue,
+      this.alpha,
+      {super.key,
+      required this.toWatchingTask});
   @override
   State<TaskBlock> createState() => _BlockTaskState();
 }
 
 class _BlockTaskState extends State<TaskBlock> {
+  bool pressed = true;
+  // buttonDecor
+    
   @override
   Widget build(BuildContext context) {
-    return SwipeActionCell(
-      key: ValueKey(widget.nodeId),
-      selectedForegroundColor: Color.fromARGB(255, 255, 0, 0),
-      trailingActions:[
-        SwipeAction(
+    List<SwipeAction> trailingActions = [
+      SwipeAction(
+        color: const Color.fromARGB(255, 244, 244, 245),
+        content: IconButton(
+            style: ButtonStyle(
+               foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                      (Set<MaterialState> states) {
+                return states.contains(MaterialState.pressed)
+                    ? Color.fromARGB(255, 210, 35, 60)
+                    : Color.fromARGB(255, 0, 0, 0);
+              })
+            ),
+            onPressed: () {
+            },
+            icon: Image.asset('assets/images/icons/cancel.png')),
+        onTap: (handler) {
+          // handler(false);
+          // await handler(true);
+          // list.removeAt(index);
+          setState(() {});
+        }
+      ),
+      SwipeAction(
           color: Color.fromARGB(255, 244, 244, 245),
-          content: IconButton(onPressed: () {}, icon: Image.asset('assets/images/icons/accept.png')),
+          content: AcceptButton(
+            action: () {
+              setState(() {
+                pressed = false;
+              });
+            },
+          ),
+          onTap: (CompletionHandler handler) {},
+        ),
+      SwipeAction(
+          color: const Color.fromARGB(255, 244, 244, 245),
+          content: DropdownListOfTaskBlock(),
           onTap: (handler) {}
         ),
-        SwipeAction(
-          color: Color.fromARGB(255, 244, 244, 245),
-          content: IconButton(onPressed: () {}, icon: Image.asset('assets/images/icons/cancel.png')),
-          onTap: (handler) {}
-        ),
-        SwipeAction(
-          color: Color.fromARGB(255, 244, 244, 245),
-          content: IconButton(
-              onPressed: () {},
-              icon: Image.asset('assets/images/icons/list.png')),
-          onTap: (handler) {}
-        ),
-      ],
-      child: InkWell(
-      onTap: (){widget.toWatchingTask();},
-      child: Container(
-        padding: const EdgeInsets.all(12),
-        width: double.maxFinite,
-        decoration: const BoxDecoration(
-          border: Border(bottom: BorderSide(color: Color.fromARGB(255, 230, 232, 235), width: 2)), 
-          color: Colors.white,
-        ),
-        child: Column(
-          children: [ 
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-              SizedBox(
-                width: 250,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      widget.typeOfTask,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Color.fromARGB(255, widget.red, widget.green, widget.blue)
-                      ),
-                    ),
-                    Text(
-                      widget.docName,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold, 
-                        fontSize: 18,
-                        color: Color.fromARGB(255, widget.red, widget.green, widget.blue)
-                      ),
-                    ),
-                  ] + widget.paramsList,
+    ];
+
+    List<SwipeAction> acceptActions = [
+    SwipeAction(
+      widthSpace: 240,
+        color: Color.fromARGB(255, 244, 244, 245),
+        content: Container(
+          alignment: AlignmentDirectional.center,
+          width: 400,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              TextButton(
+                style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                        return states.contains(MaterialState.pressed)
+                            ? Color.fromARGB(255, 210, 35, 60)
+                            : Color.fromARGB(255, 151, 162, 187);
+                      }),
+                      overlayColor:
+                          MaterialStatePropertyAll(Color.fromARGB(0, 0, 0, 0))),
+                onPressed: (){}, 
+                child: Text(
+                  'Согласовано',
+                  textScaler: TextScaler.linear(1.5),
                 )
               ),
-              const Spacer(),
-              Container(
-                height: 60,
-                padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(8)),
-                  color: Color.fromARGB(widget.alpha, widget.red, widget.green, widget.blue)
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    pressed = true;
+                  });
+                },
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {return states.contains(MaterialState.pressed) ? Color.fromARGB(255, 210, 35, 60) : Color.fromARGB(255, 151, 162, 187);}),
+                  overlayColor: MaterialStatePropertyAll(Color.fromARGB(0, 0, 0, 0))
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(widget.deadLineDate.day.toString(),
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold, 
-                        fontSize: 24, 
-                        height: 0,
-                        color: Color.fromARGB(255, widget.red, widget.green, widget.blue))
-                    ),
-                    Text(
-                      containerExtractiorFunction<Map<int, String>>(constConatiner, 'monthNumNameMap')[widget.deadLineDate.month].toString(),
-                      style: TextStyle(
-                        fontSize: 16,
-                        height: 0,
-                        color: Color.fromARGB(255, widget.red, widget.green, widget.blue)
-                      ),
-                    )
-                  ],
+                child: Text(
+                  'Отменить',
+                  textScaler: TextScaler.linear(1.5),
                 )
               ),
             ],
           ),
-              descriptionOfTaskBlock(description: widget.description,)
-          ]
-        )
-      )
-    ));
+        ),
+        onTap: (CompletionHandler handler) {},
+      ),
+    ];
+    return SwipeActionCell(
+        key: ValueKey(widget.nodeId),
+        selectedForegroundColor: Color.fromARGB(255, 255, 0, 0),
+        trailingActions: pressed ? trailingActions : acceptActions,
+        child: InkWell(
+            onTap: () {
+              widget.toWatchingTask();
+            },
+            child: LabelOfTaskBlock(
+              widget.nodeId,
+              widget.paramsList,
+              widget.typeOfTask,
+              widget.docName,
+              widget.deadLineDate,
+              widget.description,
+              widget.red,
+              widget.green,
+              widget.blue,
+              widget.alpha,
+              toWatchingTask: widget.toWatchingTask,
+            )));
   }
 }

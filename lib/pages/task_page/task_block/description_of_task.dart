@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class descriptionOfTaskBlock extends StatefulWidget {
+class DescriptionOfTaskBlock extends StatefulWidget {
   final String description;
-  const descriptionOfTaskBlock({super.key, required this.description,});
+  const DescriptionOfTaskBlock({super.key, required this.description,});
   @override
-  State<descriptionOfTaskBlock> createState() => _descriptionOfTaskBlockState();
+  State<DescriptionOfTaskBlock> createState() => _DescriptionOfTaskBlockState();
 }
 
-class _descriptionOfTaskBlockState extends State<descriptionOfTaskBlock> {
+class _DescriptionOfTaskBlockState extends State<DescriptionOfTaskBlock> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -17,7 +17,9 @@ class _descriptionOfTaskBlockState extends State<descriptionOfTaskBlock> {
         overflow: TextOverflow.ellipsis,
         textAlign: TextAlign.left,
         style: const TextStyle(
-            fontSize: 16, fontWeight: FontWeight.normal),
+          fontSize: 16, 
+          fontWeight: FontWeight.normal
+        ),
       )
     );
   }

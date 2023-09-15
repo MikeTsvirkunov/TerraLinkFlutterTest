@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_terra_link_test/container_extractor_function.dart';
 import 'package:flutter_application_terra_link_test/containers/global_functions.dart';
 import 'package:flutter_application_terra_link_test/pages/task_watch_page/deadline_section/deadline_section.dart';
-import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
 import 'package:flutter_application_terra_link_test/pages/task_watch_page/task_watch_sections/task_watch_sections_tab_bar/task_watch_sections_tab_bar.dart';
 import 'package:flutter_application_terra_link_test/pages/task_watch_page/task_watch_sections/task_watch_sections_tab_bar/task_watch_sections_tabs_list.dart';
 

@@ -28,9 +28,8 @@ class _TaskContainerState extends State<TaskContainer> {
     return SingleChildScrollView(
       controller: widget.contr,
       child: Container(
-        margin: const EdgeInsets.fromLTRB(10, 10, 10, 100),
         decoration: const BoxDecoration(
-          color: Colors.white,
+          color: Colors.white, 
           borderRadius: BorderRadius.all(Radius.circular(20))
         ),
         child: FutureBuilder(
