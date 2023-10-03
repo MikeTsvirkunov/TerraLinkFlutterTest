@@ -10,6 +10,9 @@ TaskCountersContainer taskCountersContainerBuilder(List<dynamic> taskDescription
     counterValue[task['name']] = counterValue.containsKey(task['name']) ? counterValue[task['name']]! + 1 : 1; 
   }
   List<Widget> counterWidgets = [];
+  counterWidgets.add(
+    const SizedBox(width: 5,)
+  );
   for (var counter in counterValue.keys){
     counterWidgets.add(
       TaskCounterBlock(
@@ -19,6 +22,9 @@ TaskCountersContainer taskCountersContainerBuilder(List<dynamic> taskDescription
       )
     );
   }
+  counterWidgets.add(const SizedBox(
+    width: 5,
+  ));
   return TaskCountersContainer( 
     counterWidgets
   );

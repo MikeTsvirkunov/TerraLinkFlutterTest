@@ -19,11 +19,17 @@ class _ProfileBlockState extends State<ProfileBlock> {
           borderRadius: BorderRadius.circular(36.0),
           child: widget.photo,
         ),
+        SizedBox(height: 10,),
         SizedBox(
           width: 200,
           child: Text(
             widget.name,
+            textScaler: const TextScaler.linear(1.3),
             textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Color.fromARGB(255, 128, 130, 133),
+              fontWeight: FontWeight.bold
+            ),
           )
         ),
       ],

@@ -17,13 +17,13 @@ class _AcceptButtonState extends State<AcceptButton> {
     var x = IconButton(
       onPressed:(){
         widget.action();
-        // setState(() {
-        //   press=false;
-        // });
-      }, icon: Image.asset('assets/images/icons/accept.png')
+      }, icon: Image.asset(
+        'assets/images/icons/acceptr.png',
+        width: 31,
+      )
     );
     return Container(
-      child: press ? x : Text('asd'),
+      child: press ? x : const Text('asd'),
     );
   }
 }

@@ -48,5 +48,5 @@ final constConatiner = <String, Object>{
     "НОЯБ": "НОЯБРЯ",
     "ДЕК": "ДЕКАБРЯ"
   },
-  'taskWatchRoleList': <String>['Исполнители', 'Xnj-nj', 'Xnj-nj2'],
+  'taskWatchRoleList': <String>['Исполнение', 'Доработка', 'Разработка'],
 };

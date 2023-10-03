@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MovingName extends StatefulWidget {
   final String text;
@@ -42,11 +43,9 @@ class _MovingNameState extends State<MovingName> {
                   IconButton(
                     onPressed: () => {},
                     padding: const EdgeInsets.all(5),
-                    icon: ImageIcon(
-                      const AssetImage('assets/images/icons/restart.png'),
-                      size: widget._scrollPosition == 0 ? 34 : 22,
-                      // size: widget._scrollPosition == 0 ? 34 : 34,
-                      color: const Color.fromARGB(255, 210, 35, 60),
+                    icon: SvgPicture.asset('assets/images/icons/restart.svg',
+                      width: widget._scrollPosition == 0 ?  24: 15,
+                      height: widget._scrollPosition == 0 ?  24: 15,
                     )
                   )
                 ]
@@ -59,10 +58,9 @@ class _MovingNameState extends State<MovingName> {
               onPressed: () => {},
               padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
               alignment: AlignmentDirectional.centerEnd,
-              icon: const ImageIcon(
-                AssetImage('assets/images/icons/notifications.png'),
-                size: 34,
-                color: Color.fromARGB(255, 210, 35, 60),
+              icon: SvgPicture.asset(
+                'assets/images/icons/notifications.svg',
+                height: 34,
               ),
             ),
           )

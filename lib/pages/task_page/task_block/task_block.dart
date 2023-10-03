@@ -43,47 +43,44 @@ class _BlockTaskState extends State<TaskBlock> {
     List<SwipeAction> trailingActions = [
       SwipeAction(
         color: const Color.fromARGB(255, 244, 244, 245),
+        content: AcceptButton(
+          action: () {
+            setState(() {
+              pressed = false;
+            });
+          },
+        ),
+        onTap: (CompletionHandler handler) {},
+      ),
+      SwipeAction(
+        color: const Color.fromARGB(255, 244, 244, 245),
         content: IconButton(
             style: ButtonStyle(
                foregroundColor: MaterialStateProperty.resolveWith<Color>(
                       (Set<MaterialState> states) {
                 return states.contains(MaterialState.pressed)
-                    ? Color.fromARGB(255, 210, 35, 60)
-                    : Color.fromARGB(255, 0, 0, 0);
+                    ? const Color.fromARGB(255, 210, 35, 60)
+                    : const Color.fromARGB(255, 0, 0, 0);
               })
             ),
             onPressed: () {
             },
-            icon: Image.asset('assets/images/icons/cancel.png')),
+            icon: Image.asset('assets/images/icons/cancel.png', width: 31,)),
         onTap: (handler) {
-          // handler(false);
-          // await handler(true);
-          // list.removeAt(index);
           setState(() {});
         }
       ),
       SwipeAction(
-          color: Color.fromARGB(255, 244, 244, 245),
-          content: AcceptButton(
-            action: () {
-              setState(() {
-                pressed = false;
-              });
-            },
-          ),
-          onTap: (CompletionHandler handler) {},
-        ),
-      SwipeAction(
-          color: const Color.fromARGB(255, 244, 244, 245),
-          content: DropdownListOfTaskBlock(),
-          onTap: (handler) {}
-        ),
+        color: const Color.fromARGB(255, 244, 244, 245),
+        content: const DropdownListOfTaskBlock(),
+        onTap: (handler) {}
+      ),
     ];
 
     List<SwipeAction> acceptActions = [
     SwipeAction(
       widthSpace: 240,
-        color: Color.fromARGB(255, 244, 244, 245),
+        color: const Color.fromARGB(255, 244, 244, 245),
         content: Container(
           alignment: AlignmentDirectional.center,
           width: 400,
@@ -96,13 +93,13 @@ class _BlockTaskState extends State<TaskBlock> {
                       foregroundColor: MaterialStateProperty.resolveWith<Color>(
                           (Set<MaterialState> states) {
                         return states.contains(MaterialState.pressed)
-                            ? Color.fromARGB(255, 210, 35, 60)
-                            : Color.fromARGB(255, 151, 162, 187);
+                            ? const Color.fromARGB(255, 210, 35, 60)
+                            : const Color.fromARGB(255, 151, 162, 187);
                       }),
                       overlayColor:
                           MaterialStatePropertyAll(Color.fromARGB(0, 0, 0, 0))),
                 onPressed: (){}, 
-                child: Text(
+                child: const Text(
                   'Согласовано',
                   textScaler: TextScaler.linear(1.5),
                 )
@@ -114,10 +111,10 @@ class _BlockTaskState extends State<TaskBlock> {
                   });
                 },
                 style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {return states.contains(MaterialState.pressed) ? Color.fromARGB(255, 210, 35, 60) : Color.fromARGB(255, 151, 162, 187);}),
+                  foregroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {return states.contains(MaterialState.pressed) ? const Color.fromARGB(255, 210, 35, 60) : const Color.fromARGB(255, 151, 162, 187);}),
                   overlayColor: MaterialStatePropertyAll(Color.fromARGB(0, 0, 0, 0))
                 ),
-                child: Text(
+                child: const Text(
                   'Отменить',
                   textScaler: TextScaler.linear(1.5),
                 )
@@ -130,7 +127,7 @@ class _BlockTaskState extends State<TaskBlock> {
     ];
     return SwipeActionCell(
         key: ValueKey(widget.nodeId),
-        selectedForegroundColor: Color.fromARGB(255, 255, 0, 0),
+        selectedForegroundColor: const Color.fromARGB(255, 255, 0, 0),
         trailingActions: pressed ? trailingActions : acceptActions,
         child: InkWell(
             onTap: () {

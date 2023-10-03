@@ -29,7 +29,7 @@ class _DropdownListOfTaskBlockState extends State<DropdownListOfTaskBlock> {
   Widget build(BuildContext context) {
     return DropdownButton2(
       isExpanded: true,
-      customButton: SizedBox(height: 50, child: Image.asset('assets/images/icons/list.png')),
+      customButton: SizedBox(height: 50, child: Image.asset('assets/images/icons/list.png', width: 28,)),
       onChanged: (value) {
 
       },

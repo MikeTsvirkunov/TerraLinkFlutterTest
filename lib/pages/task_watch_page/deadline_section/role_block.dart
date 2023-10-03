@@ -24,7 +24,7 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
+      icon: const Icon(Icons.keyboard_arrow_down_rounded, size: 35,),
       elevation: 16,
       underline: Container(height: 0),
       style: const TextStyle(
@@ -39,17 +39,19 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
         return DropdownMenuItem<String>(
           value: value,
           child: Container(
-            padding: const EdgeInsets.all(5), 
+            margin: const EdgeInsets.only(right: 5),
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15), 
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(
-                Radius.circular(10)
+                Radius.circular(100)
               )
             ), 
             child: FittedBox(
               child: Text(
                 value,
                 textAlign: TextAlign.center,
+                textScaler: const TextScaler.linear(1.2),
               )
             )
           ),

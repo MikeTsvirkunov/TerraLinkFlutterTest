@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_terra_link_test/pages/task_watch_page/task_watch_page.dart';
 
 class BTN extends StatefulWidget {
   final String text;
@@ -11,6 +10,7 @@ class BTN extends StatefulWidget {
 }
 
 class _BTNState extends State<BTN> {
+  bool x = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,36 +23,56 @@ class _BTNState extends State<BTN> {
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 0.1,
             blurRadius: 7,
-            offset: const Offset(0, 10), // changes position of shadoww  
+            offset: const Offset(0, 10),
           ),
         ],
       ),
       child: TextButton(
         onPressed: () => {
+            // x = true
             Navigator.push(
             context,
-            CupertinoPageRoute(builder: (context) => TaskWatchPage('45036380', widget.text, deadLineDate: DateTime(2017, 9, 7, 17, 30)))
+            CupertinoPageRoute(builder: (context) => const CupertinoPageScaffold(
+              child: Center(child: Text(
+                'On development',
+                style: TextStyle(color: Colors.black, decoration: TextDecoration.none, fontSize: 20),
+              )),
+            )
+          )
         )
         },
-        style: const ButtonStyle(
-          
-          backgroundColor: MaterialStatePropertyAll(Colors.white),
-          shape: MaterialStatePropertyAll(
+        style: ButtonStyle(
+          backgroundColor: const MaterialStatePropertyAll(Colors.white),
+          foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+                  // x = 
+                return !states.contains(MaterialState.pressed)
+                    ? const Color.fromARGB(255, 210, 35, 60)
+                    : Colors.white;
+                }
+              ),
+          shape: const MaterialStatePropertyAll(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
             )
           ),
-          overlayColor: MaterialStatePropertyAll(Color.fromARGB(255, 170, 0, 24)),
-          
+          overlayColor: const MaterialStatePropertyAll(Color.fromARGB(255, 170, 0, 24)),
+          // foregroundColor: 
         ),
+
         child: SizedBox(
-          height: 40,
+          height: 50,
           child: Row(
             children: [
-              ImageIcon(AssetImage(widget.icon), size: 20, color: const Color.fromARGB(255, 170, 0, 24), ),
-              Text(widget.text, style: const TextStyle(color: Colors.black),),
+              Padding(padding: const EdgeInsets.all(5), child: ImageIcon(AssetImage(widget.icon), size: 23,)), // color: x ? Colors.white : const Color.fromARGB(255, 170, 0, 24),)),
+              const SizedBox(width: 10,),
+              Text(widget.text, style: const TextStyle(),),
               const Spacer(),
-              const Icon(Icons.navigate_next, color: Color.fromARGB(255, 209, 209, 214), size: 30,)
+              const Icon(
+                Icons.navigate_next, 
+                // color: x ? Colors.white : const Color.fromARGB(255, 209, 209, 214), 
+                size: 30,
+              )
             ],
           )
         )
