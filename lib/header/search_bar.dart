@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HeaderSearchBar extends StatefulWidget {
   final Function(String)? fun;
@@ -15,14 +16,13 @@ class _HeaderSearchBarState extends State<HeaderSearchBar> {
       width: double.maxFinite,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
           padding: const  EdgeInsets.fromLTRB(0, 0, 0, 0),
           alignment: AlignmentDirectional.bottomCenter,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            // color: Color.fromARGB(255, 240, 242, 245),
             color: Color.fromARGB(255, 240, 242, 245),
           ),
           child: Row(
@@ -56,7 +56,11 @@ class _HeaderSearchBarState extends State<HeaderSearchBar> {
           width: MediaQuery.of(context).size.width * 0.12,
           child: IconButton(
             onPressed: (){}, 
-            icon: const ImageIcon(AssetImage('assets/images/icons/filter.png'), size: 25, color: Color.fromARGB(255, 210, 35, 60),)
+            icon: SvgPicture.asset(
+              'assets/images/icons/filter.svg',
+              width: 30,
+              height: 30,
+            )
           )
         )
       ]
